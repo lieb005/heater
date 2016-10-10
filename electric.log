@@ -1,0 +1,972 @@
+Electric Version 9.06
+--------------- 0 --------------
+  Sun Oct 09 15:33:25 PDT 2016
+ProcessKeyBinding 402 when=1476052405718 modifiers=0 code=10 char=ffff false false
+--------------- 1 --------------
+  Sun Oct 09 15:33:25 PDT 2016
+ProcessKeyBinding 402 when=1476052405718 modifiers=0 code=20c char=ffff false false
+--------------- 2 --------------
+  Sun Oct 09 15:33:26 PDT 2016
+ProcessKeyBinding 401 when=1476052406153 modifiers=0 code=20c char=ffff false false
+--------------- 3 --------------
+  Sun Oct 09 15:33:26 PDT 2016
+ProcessKeyBinding 401 when=1476052406187 modifiers=40 code=10 char=ffff false false
+--------------- 4 --------------
+  Sun Oct 09 15:33:28 PDT 2016
+ProcessKeyBinding 402 when=1476052408050 modifiers=0 code=20c char=ffff false false
+--------------- 5 --------------
+  Sun Oct 09 15:33:33 PDT 2016
+Menu Activated: File | Open Library...
+--------------- 6 --------------
+  Sun Oct 09 15:33:41 PDT 2016
+ProcessKeyBinding 401 when=1476052421071 modifiers=0 code=34 char=34(4) false true
+--------------- 7 --------------
+  Sun Oct 09 15:33:41 PDT 2016
+ProcessKeyBinding 402 when=1476052421158 modifiers=0 code=34 char=34(4) false true
+--------------- 8 --------------
+  Sun Oct 09 15:33:41 PDT 2016
+ProcessKeyBinding 401 when=1476052421460 modifiers=0 code=4b char=6b(k) false true
+--------------- 9 --------------
+  Sun Oct 09 15:33:41 PDT 2016
+ProcessKeyBinding 402 when=1476052421546 modifiers=0 code=4b char=6b(k) false true
+--------------- 10 --------------
+  Sun Oct 09 15:33:41 PDT 2016
+ProcessKeyBinding 401 when=1476052421984 modifiers=0 code=37 char=37(7) false true
+--------------- 11 --------------
+  Sun Oct 09 15:33:42 PDT 2016
+ProcessKeyBinding 402 when=1476052422063 modifiers=0 code=37 char=37(7) false true
+--------------- 12 --------------
+  Sun Oct 09 15:33:42 PDT 2016
+ProcessKeyBinding 402 when=1476052422398 modifiers=0 code=a char=a false false
+--------------- 13 --------------
+  Sun Oct 09 15:33:46 PDT 2016
+ProcessKeyBinding 401 when=1476052426876 modifiers=0 code=34 char=34(4) false true
+--------------- 14 --------------
+  Sun Oct 09 15:33:46 PDT 2016
+ProcessKeyBinding 402 when=1476052426931 modifiers=0 code=34 char=34(4) false true
+--------------- 15 --------------
+  Sun Oct 09 15:33:47 PDT 2016
+ProcessKeyBinding 401 when=1476052427305 modifiers=0 code=2e char=2e(.) false true
+--------------- 16 --------------
+  Sun Oct 09 15:33:47 PDT 2016
+ProcessKeyBinding 402 when=1476052427391 modifiers=0 code=2e char=2e(.) false true
+--------------- 17 --------------
+  Sun Oct 09 15:33:47 PDT 2016
+ProcessKeyBinding 401 when=1476052427670 modifiers=0 code=35 char=35(5) false true
+--------------- 18 --------------
+  Sun Oct 09 15:33:47 PDT 2016
+ProcessKeyBinding 402 when=1476052427717 modifiers=0 code=35 char=35(5) false true
+--------------- 19 --------------
+  Sun Oct 09 15:33:48 PDT 2016
+ProcessKeyBinding 402 when=1476052428124 modifiers=0 code=8 char=8 false true
+--------------- 20 --------------
+  Sun Oct 09 15:33:48 PDT 2016
+ProcessKeyBinding 401 when=1476052428432 modifiers=0 code=37 char=37(7) false true
+--------------- 21 --------------
+  Sun Oct 09 15:33:48 PDT 2016
+ProcessKeyBinding 402 when=1476052428511 modifiers=0 code=37 char=37(7) false true
+--------------- 22 --------------
+  Sun Oct 09 15:33:48 PDT 2016
+ProcessKeyBinding 401 when=1476052428645 modifiers=0 code=4b char=6b(k) false true
+--------------- 23 --------------
+  Sun Oct 09 15:33:48 PDT 2016
+ProcessKeyBinding 402 when=1476052428716 modifiers=0 code=4b char=6b(k) false true
+--------------- 24 --------------
+  Sun Oct 09 15:33:49 PDT 2016
+ProcessKeyBinding 402 when=1476052429083 modifiers=0 code=a char=a false false
+--------------- 25 --------------
+  Sun Oct 09 15:34:05 PDT 2016
+ProcessKeyBinding 401 when=1476052445103 modifiers=0 code=34 char=34(4) false true
+--------------- 26 --------------
+  Sun Oct 09 15:34:05 PDT 2016
+ProcessKeyBinding 402 when=1476052445182 modifiers=0 code=34 char=34(4) false true
+--------------- 27 --------------
+  Sun Oct 09 15:34:05 PDT 2016
+ProcessKeyBinding 401 when=1476052445627 modifiers=0 code=4b char=6b(k) false true
+--------------- 28 --------------
+  Sun Oct 09 15:34:05 PDT 2016
+ProcessKeyBinding 402 when=1476052445730 modifiers=0 code=4b char=6b(k) false true
+--------------- 29 --------------
+  Sun Oct 09 15:34:06 PDT 2016
+ProcessKeyBinding 401 when=1476052446104 modifiers=0 code=37 char=37(7) false true
+--------------- 30 --------------
+  Sun Oct 09 15:34:06 PDT 2016
+ProcessKeyBinding 402 when=1476052446191 modifiers=0 code=37 char=37(7) false true
+--------------- 31 --------------
+  Sun Oct 09 15:34:06 PDT 2016
+ProcessKeyBinding 402 when=1476052446343 modifiers=0 code=a char=a false false
+--------------- 32 --------------
+  Sun Oct 09 15:34:09 PDT 2016
+ProcessKeyBinding 401 when=1476052449123 modifiers=0 code=34 char=34(4) false true
+--------------- 33 --------------
+  Sun Oct 09 15:34:09 PDT 2016
+ProcessKeyBinding 402 when=1476052449210 modifiers=0 code=34 char=34(4) false true
+--------------- 34 --------------
+  Sun Oct 09 15:34:09 PDT 2016
+ProcessKeyBinding 401 when=1476052449576 modifiers=0 code=4b char=6b(k) false true
+--------------- 35 --------------
+  Sun Oct 09 15:34:09 PDT 2016
+ProcessKeyBinding 402 when=1476052449654 modifiers=0 code=4b char=6b(k) false true
+--------------- 36 --------------
+  Sun Oct 09 15:34:09 PDT 2016
+ProcessKeyBinding 401 when=1476052449933 modifiers=0 code=37 char=37(7) false true
+--------------- 37 --------------
+  Sun Oct 09 15:34:10 PDT 2016
+ProcessKeyBinding 402 when=1476052450012 modifiers=0 code=37 char=37(7) false true
+--------------- 38 --------------
+  Sun Oct 09 15:34:10 PDT 2016
+ProcessKeyBinding 402 when=1476052450203 modifiers=0 code=a char=a false false
+--------------- 39 --------------
+  Sun Oct 09 15:34:12 PDT 2016
+ProcessKeyBinding 401 when=1476052452465 modifiers=0 code=34 char=34(4) false true
+--------------- 40 --------------
+  Sun Oct 09 15:34:12 PDT 2016
+ProcessKeyBinding 402 when=1476052452544 modifiers=0 code=34 char=34(4) false true
+--------------- 41 --------------
+  Sun Oct 09 15:34:12 PDT 2016
+ProcessKeyBinding 401 when=1476052452862 modifiers=0 code=4b char=6b(k) false true
+--------------- 42 --------------
+  Sun Oct 09 15:34:12 PDT 2016
+ProcessKeyBinding 402 when=1476052452956 modifiers=0 code=4b char=6b(k) false true
+--------------- 43 --------------
+  Sun Oct 09 15:34:13 PDT 2016
+ProcessKeyBinding 401 when=1476052453227 modifiers=0 code=37 char=37(7) false true
+--------------- 44 --------------
+  Sun Oct 09 15:34:13 PDT 2016
+ProcessKeyBinding 402 when=1476052453282 modifiers=0 code=37 char=37(7) false true
+--------------- 45 --------------
+  Sun Oct 09 15:34:13 PDT 2016
+ProcessKeyBinding 402 when=1476052453473 modifiers=0 code=a char=a false false
+--------------- 46 --------------
+  Sun Oct 09 15:34:17 PDT 2016
+ProcessKeyBinding 401 when=1476052457878 modifiers=80 code=11 char=ffff false false
+--------------- 47 --------------
+  Sun Oct 09 15:34:18 PDT 2016
+Menu Activated: Edit | Undo
+Currently highlighted: 
+    Resistance on node Resistor['res@3']
+--------------- 48 --------------
+  Sun Oct 09 15:34:18 PDT 2016
+ProcessKeyBinding 400 when=1476052458192 modifiers=80 code=0 char=1a false false
+--------------- 49 --------------
+  Sun Oct 09 15:34:18 PDT 2016
+ProcessKeyBinding 402 when=1476052458489 modifiers=0 code=11 char=ffff false false
+--------------- 50 --------------
+  Sun Oct 09 15:34:24 PDT 2016
+ProcessKeyBinding 402 when=1476052464810 modifiers=0 code=a char=a false false
+--------------- 51 --------------
+  Sun Oct 09 15:34:30 PDT 2016
+ProcessKeyBinding 402 when=1476052470776 modifiers=0 code=a char=a false false
+--------------- 52 --------------
+  Sun Oct 09 15:35:43 PDT 2016
+ProcessKeyBinding 401 when=1476052543606 modifiers=0 code=1b char=1b false false
+--------------- 53 --------------
+  Sun Oct 09 15:35:43 PDT 2016
+ProcessKeyBinding 400 when=1476052543606 modifiers=0 code=0 char=1b false false
+--------------- 54 --------------
+  Sun Oct 09 15:35:43 PDT 2016
+ProcessKeyBinding 402 when=1476052543740 modifiers=0 code=1b char=1b false false
+--------------- 55 --------------
+  Sun Oct 09 15:35:45 PDT 2016
+Menu Activated: Edit | Erase | Selected
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'spiceparts:NodeSet{ic}[NodeSet@0].plus'
+--------------- 56 --------------
+  Sun Oct 09 15:35:45 PDT 2016
+ProcessKeyBinding 400 when=1476052545819 modifiers=0 code=0 char=7f false false
+--------------- 57 --------------
+  Sun Oct 09 15:36:09 PDT 2016
+ProcessKeyBinding 401 when=1476052569411 modifiers=80 code=11 char=ffff false false
+--------------- 58 --------------
+  Sun Oct 09 15:36:09 PDT 2016
+Menu Activated: Edit | Copy
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@0']
+--------------- 59 --------------
+  Sun Oct 09 15:36:09 PDT 2016
+ProcessKeyBinding 400 when=1476052569929 modifiers=80 code=0 char=3 false false
+--------------- 60 --------------
+  Sun Oct 09 15:36:10 PDT 2016
+Menu Activated: Edit | Paste
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@0']
+--------------- 61 --------------
+  Sun Oct 09 15:36:10 PDT 2016
+ProcessKeyBinding 400 when=1476052570478 modifiers=80 code=0 char=16 false false
+--------------- 62 --------------
+  Sun Oct 09 15:36:10 PDT 2016
+ProcessKeyBinding 402 when=1476052570776 modifiers=0 code=11 char=ffff false false
+--------------- 63 --------------
+  Sun Oct 09 15:36:14 PDT 2016
+ProcessKeyBinding 401 when=1476052574172 modifiers=80 code=11 char=ffff false false
+--------------- 64 --------------
+  Sun Oct 09 15:36:14 PDT 2016
+Menu Activated: Edit | Copy
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Off-Page[conn@0].a'
+--------------- 65 --------------
+  Sun Oct 09 15:36:14 PDT 2016
+ProcessKeyBinding 400 when=1476052574581 modifiers=80 code=0 char=3 false false
+--------------- 66 --------------
+  Sun Oct 09 15:36:14 PDT 2016
+ProcessKeyBinding 402 when=1476052574792 modifiers=0 code=11 char=ffff false false
+--------------- 67 --------------
+  Sun Oct 09 15:36:16 PDT 2016
+ProcessKeyBinding 401 when=1476052576274 modifiers=80 code=11 char=ffff false false
+--------------- 68 --------------
+  Sun Oct 09 15:36:16 PDT 2016
+Menu Activated: Edit | Paste
+--------------- 69 --------------
+  Sun Oct 09 15:36:16 PDT 2016
+ProcessKeyBinding 400 when=1476052576723 modifiers=80 code=0 char=16 false false
+--------------- 70 --------------
+  Sun Oct 09 15:36:16 PDT 2016
+ProcessKeyBinding 402 when=1476052576909 modifiers=0 code=11 char=ffff false false
+--------------- 71 --------------
+  Sun Oct 09 15:36:18 PDT 2016
+ProcessKeyBinding 401 when=1476052578136 modifiers=80 code=11 char=ffff false false
+--------------- 72 --------------
+  Sun Oct 09 15:36:18 PDT 2016
+Menu Activated: Edit | Paste
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@1']
+--------------- 73 --------------
+  Sun Oct 09 15:36:18 PDT 2016
+ProcessKeyBinding 400 when=1476052578586 modifiers=80 code=0 char=16 false false
+--------------- 74 --------------
+  Sun Oct 09 15:36:18 PDT 2016
+ProcessKeyBinding 402 when=1476052578819 modifiers=0 code=11 char=ffff false false
+--------------- 75 --------------
+  Sun Oct 09 15:36:20 PDT 2016
+ProcessKeyBinding 401 when=1476052580111 modifiers=80 code=11 char=ffff false false
+--------------- 76 --------------
+  Sun Oct 09 15:36:20 PDT 2016
+Menu Activated: Edit | Paste
+--------------- 77 --------------
+  Sun Oct 09 15:36:20 PDT 2016
+ProcessKeyBinding 400 when=1476052580400 modifiers=80 code=0 char=16 false false
+--------------- 78 --------------
+  Sun Oct 09 15:36:20 PDT 2016
+ProcessKeyBinding 402 when=1476052580594 modifiers=0 code=11 char=ffff false false
+--------------- 79 --------------
+  Sun Oct 09 15:36:22 PDT 2016
+ProcessKeyBinding 401 when=1476052582308 modifiers=80 code=11 char=ffff false false
+--------------- 80 --------------
+  Sun Oct 09 15:36:22 PDT 2016
+Menu Activated: Edit | Paste
+--------------- 81 --------------
+  Sun Oct 09 15:36:22 PDT 2016
+ProcessKeyBinding 400 when=1476052582518 modifiers=80 code=0 char=16 false false
+--------------- 82 --------------
+  Sun Oct 09 15:36:22 PDT 2016
+ProcessKeyBinding 402 when=1476052582712 modifiers=0 code=11 char=ffff false false
+--------------- 83 --------------
+  Sun Oct 09 15:36:24 PDT 2016
+ProcessKeyBinding 401 when=1476052584147 modifiers=80 code=11 char=ffff false false
+--------------- 84 --------------
+  Sun Oct 09 15:36:24 PDT 2016
+Menu Activated: Edit | Paste
+--------------- 85 --------------
+  Sun Oct 09 15:36:24 PDT 2016
+ProcessKeyBinding 400 when=1476052584396 modifiers=80 code=0 char=16 false false
+--------------- 86 --------------
+  Sun Oct 09 15:36:24 PDT 2016
+ProcessKeyBinding 402 when=1476052584543 modifiers=0 code=11 char=ffff false false
+--------------- 87 --------------
+  Sun Oct 09 15:36:26 PDT 2016
+ProcessKeyBinding 401 when=1476052586376 modifiers=80 code=11 char=ffff false false
+--------------- 88 --------------
+  Sun Oct 09 15:36:26 PDT 2016
+Menu Activated: Edit | Paste
+--------------- 89 --------------
+  Sun Oct 09 15:36:26 PDT 2016
+ProcessKeyBinding 400 when=1476052586610 modifiers=80 code=0 char=16 false false
+--------------- 90 --------------
+  Sun Oct 09 15:36:26 PDT 2016
+ProcessKeyBinding 402 when=1476052586780 modifiers=0 code=11 char=ffff false false
+--------------- 91 --------------
+  Sun Oct 09 15:36:29 PDT 2016
+ProcessKeyBinding 401 when=1476052589203 modifiers=80 code=11 char=ffff false false
+--------------- 92 --------------
+  Sun Oct 09 15:36:29 PDT 2016
+ProcessKeyBinding 402 when=1476052589936 modifiers=0 code=11 char=ffff false false
+--------------- 93 --------------
+  Sun Oct 09 15:36:31 PDT 2016
+ProcessKeyBinding 401 when=1476052591578 modifiers=40 code=10 char=ffff false false
+--------------- 94 --------------
+  Sun Oct 09 15:36:32 PDT 2016
+ProcessKeyBinding 402 when=1476052592302 modifiers=0 code=10 char=ffff false false
+--------------- 95 --------------
+  Sun Oct 09 15:36:32 PDT 2016
+ProcessKeyBinding 401 when=1476052592605 modifiers=80 code=11 char=ffff false false
+--------------- 96 --------------
+  Sun Oct 09 15:36:33 PDT 2016
+ProcessKeyBinding 402 when=1476052593114 modifiers=0 code=11 char=ffff false false
+--------------- 97 --------------
+  Sun Oct 09 15:36:33 PDT 2016
+ProcessKeyBinding 401 when=1476052593599 modifiers=200 code=12 char=ffff false false
+--------------- 98 --------------
+  Sun Oct 09 15:36:34 PDT 2016
+ProcessKeyBinding 402 when=1476052594188 modifiers=0 code=12 char=ffff false false
+--------------- 99 --------------
+  Sun Oct 09 15:36:34 PDT 2016
+Menu Activated: Edit | Move | Move Objects Left
+--------------- 100 --------------
+  Sun Oct 09 15:36:35 PDT 2016
+Menu Activated: Edit | Move | Move Objects Left
+--------------- 101 --------------
+  Sun Oct 09 15:36:35 PDT 2016
+Menu Activated: Edit | Move | Move Objects Right
+--------------- 102 --------------
+  Sun Oct 09 15:36:35 PDT 2016
+Menu Activated: Edit | Move | Move Objects Right
+--------------- 103 --------------
+  Sun Oct 09 15:36:35 PDT 2016
+Menu Activated: Edit | Move | Move Objects Right
+--------------- 104 --------------
+  Sun Oct 09 15:36:52 PDT 2016
+Menu Activated: Edit | Array...
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@5']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@4']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@3']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@2']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@1']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@0']
+--------------- 105 --------------
+  Sun Oct 09 15:37:16 PDT 2016
+Menu Activated: Edit | Array...
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Off-Page[conn@0].y'
+--------------- 106 --------------
+  Sun Oct 09 15:37:36 PDT 2016
+ProcessKeyBinding 401 when=1476052656111 modifiers=80 code=11 char=ffff false false
+--------------- 107 --------------
+  Sun Oct 09 15:37:36 PDT 2016
+Menu Activated: Edit | Undo
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Off-Page['conn@0']
+--------------- 108 --------------
+  Sun Oct 09 15:37:36 PDT 2016
+ProcessKeyBinding 400 when=1476052656297 modifiers=80 code=0 char=1a false false
+--------------- 109 --------------
+  Sun Oct 09 15:37:36 PDT 2016
+ProcessKeyBinding 402 when=1476052656674 modifiers=0 code=11 char=ffff false false
+--------------- 110 --------------
+  Sun Oct 09 15:37:39 PDT 2016
+ProcessKeyBinding 401 when=1476052659569 modifiers=80 code=11 char=ffff false false
+--------------- 111 --------------
+  Sun Oct 09 15:37:39 PDT 2016
+Menu Activated: Edit | Undo
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Off-Page[conn@0].y'
+--------------- 112 --------------
+  Sun Oct 09 15:37:39 PDT 2016
+ProcessKeyBinding 400 when=1476052659955 modifiers=80 code=0 char=1a false false
+--------------- 113 --------------
+  Sun Oct 09 15:37:40 PDT 2016
+Menu Activated: Edit | Undo
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Off-Page[conn@0].y'
+--------------- 114 --------------
+  Sun Oct 09 15:37:40 PDT 2016
+ProcessKeyBinding 400 when=1476052660399 modifiers=80 code=0 char=1a false false
+--------------- 115 --------------
+  Sun Oct 09 15:37:40 PDT 2016
+Menu Activated: Edit | Undo
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Off-Page[conn@0].y'
+--------------- 116 --------------
+  Sun Oct 09 15:37:40 PDT 2016
+ProcessKeyBinding 400 when=1476052660716 modifiers=80 code=0 char=1a false false
+--------------- 117 --------------
+  Sun Oct 09 15:37:41 PDT 2016
+Menu Activated: Edit | Undo
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Off-Page[conn@0].y'
+--------------- 118 --------------
+  Sun Oct 09 15:37:41 PDT 2016
+ProcessKeyBinding 400 when=1476052661033 modifiers=80 code=0 char=1a false false
+--------------- 119 --------------
+  Sun Oct 09 15:37:41 PDT 2016
+ProcessKeyBinding 402 when=1476052661945 modifiers=0 code=11 char=ffff false false
+--------------- 120 --------------
+  Sun Oct 09 15:38:00 PDT 2016
+Menu Activated: Edit | Properties | Edit Bus Parameters...
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Off-Page[conn@0].a'
+--------------- 121 --------------
+  Sun Oct 09 15:38:43 PDT 2016
+ProcessKeyBinding 401 when=1476052723577 modifiers=0 code=1b char=1b false false
+--------------- 122 --------------
+  Sun Oct 09 15:38:43 PDT 2016
+ProcessKeyBinding 400 when=1476052723577 modifiers=0 code=0 char=1b false false
+--------------- 123 --------------
+  Sun Oct 09 15:38:43 PDT 2016
+ProcessKeyBinding 402 when=1476052723759 modifiers=0 code=1b char=1b false false
+--------------- 124 --------------
+  Sun Oct 09 15:38:52 PDT 2016
+ProcessKeyBinding 401 when=1476052732644 modifiers=80 code=11 char=ffff false false
+--------------- 125 --------------
+  Sun Oct 09 15:38:53 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+--------------- 126 --------------
+  Sun Oct 09 15:38:53 PDT 2016
+ProcessKeyBinding 400 when=1476052733115 modifiers=80 code=0 char=a false false
+--------------- 127 --------------
+  Sun Oct 09 15:38:53 PDT 2016
+ProcessKeyBinding 402 when=1476052733558 modifiers=0 code=11 char=ffff false false
+--------------- 128 --------------
+  Sun Oct 09 15:38:54 PDT 2016
+ProcessKeyBinding 401 when=1476052734403 modifiers=80 code=11 char=ffff false false
+--------------- 129 --------------
+  Sun Oct 09 15:38:54 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+--------------- 130 --------------
+  Sun Oct 09 15:38:54 PDT 2016
+ProcessKeyBinding 400 when=1476052734778 modifiers=80 code=0 char=a false false
+--------------- 131 --------------
+  Sun Oct 09 15:38:54 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+    com.sun.electric.tool.user.HighlightLine in cell 'Heater_Schematic{sch}': 
+--------------- 132 --------------
+  Sun Oct 09 15:38:54 PDT 2016
+ProcessKeyBinding 400 when=1476052734983 modifiers=80 code=0 char=a false false
+--------------- 133 --------------
+  Sun Oct 09 15:38:55 PDT 2016
+ProcessKeyBinding 402 when=1476052735155 modifiers=0 code=11 char=ffff false false
+--------------- 134 --------------
+  Sun Oct 09 15:38:55 PDT 2016
+ProcessKeyBinding 401 when=1476052735475 modifiers=0 code=4a char=6a(j) false false
+--------------- 135 --------------
+  Sun Oct 09 15:38:55 PDT 2016
+ProcessKeyBinding 400 when=1476052735475 modifiers=0 code=0 char=6a(j) false false
+--------------- 136 --------------
+  Sun Oct 09 15:38:55 PDT 2016
+ProcessKeyBinding 402 when=1476052735594 modifiers=0 code=4a char=6a(j) false false
+--------------- 137 --------------
+  Sun Oct 09 15:38:55 PDT 2016
+ProcessKeyBinding 401 when=1476052735784 modifiers=0 code=4a char=6a(j) false false
+--------------- 138 --------------
+  Sun Oct 09 15:38:55 PDT 2016
+ProcessKeyBinding 400 when=1476052735784 modifiers=0 code=0 char=6a(j) false false
+--------------- 139 --------------
+  Sun Oct 09 15:38:55 PDT 2016
+ProcessKeyBinding 402 when=1476052735879 modifiers=0 code=4a char=6a(j) false false
+--------------- 140 --------------
+  Sun Oct 09 15:38:56 PDT 2016
+ProcessKeyBinding 401 when=1476052736013 modifiers=0 code=4a char=6a(j) false false
+--------------- 141 --------------
+  Sun Oct 09 15:38:56 PDT 2016
+ProcessKeyBinding 400 when=1476052736013 modifiers=0 code=0 char=6a(j) false false
+--------------- 142 --------------
+  Sun Oct 09 15:38:56 PDT 2016
+ProcessKeyBinding 402 when=1476052736116 modifiers=0 code=4a char=6a(j) false false
+--------------- 143 --------------
+  Sun Oct 09 15:38:57 PDT 2016
+ProcessKeyBinding 401 when=1476052737454 modifiers=0 code=1b char=1b false false
+--------------- 144 --------------
+  Sun Oct 09 15:38:57 PDT 2016
+ProcessKeyBinding 400 when=1476052737454 modifiers=0 code=0 char=1b false false
+--------------- 145 --------------
+  Sun Oct 09 15:38:57 PDT 2016
+ProcessKeyBinding 402 when=1476052737573 modifiers=0 code=1b char=1b false false
+--------------- 146 --------------
+  Sun Oct 09 15:38:59 PDT 2016
+ProcessKeyBinding 401 when=1476052739334 modifiers=80 code=11 char=ffff false false
+--------------- 147 --------------
+  Sun Oct 09 15:38:59 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@5].b'
+--------------- 148 --------------
+  Sun Oct 09 15:38:59 PDT 2016
+ProcessKeyBinding 400 when=1476052739710 modifiers=80 code=0 char=a false false
+--------------- 149 --------------
+  Sun Oct 09 15:39:00 PDT 2016
+ProcessKeyBinding 402 when=1476052740591 modifiers=0 code=11 char=ffff false false
+--------------- 150 --------------
+  Sun Oct 09 15:39:06 PDT 2016
+ProcessKeyBinding 402 when=1476052746820 modifiers=0 code=a char=a false false
+--------------- 151 --------------
+  Sun Oct 09 15:39:13 PDT 2016
+ProcessKeyBinding 401 when=1476052753914 modifiers=80 code=11 char=ffff false false
+--------------- 152 --------------
+  Sun Oct 09 15:39:13 PDT 2016
+ProcessKeyBinding 402 when=1476052753961 modifiers=0 code=11 char=ffff false false
+--------------- 153 --------------
+  Sun Oct 09 15:39:13 PDT 2016
+ProcessKeyBinding 401 when=1476052753991 modifiers=80 code=11 char=ffff false false
+--------------- 154 --------------
+  Sun Oct 09 15:39:14 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@6']
+--------------- 155 --------------
+  Sun Oct 09 15:39:14 PDT 2016
+ProcessKeyBinding 400 when=1476052754183 modifiers=80 code=0 char=a false false
+--------------- 156 --------------
+  Sun Oct 09 15:39:14 PDT 2016
+ProcessKeyBinding 402 when=1476052754379 modifiers=0 code=11 char=ffff false false
+--------------- 157 --------------
+  Sun Oct 09 15:39:40 PDT 2016
+Menu Activated: Tools | ERC | Check Wells
+--------------- 158 --------------
+  Sun Oct 09 15:41:10 PDT 2016
+ProcessKeyBinding 402 when=1476052870732 modifiers=0 code=a char=a false false
+--------------- 159 --------------
+  Sun Oct 09 15:41:13 PDT 2016
+ProcessKeyBinding 402 when=1476052873476 modifiers=0 code=a char=a false false
+--------------- 160 --------------
+  Sun Oct 09 15:41:15 PDT 2016
+ProcessKeyBinding 402 when=1476052875885 modifiers=0 code=a char=a false false
+--------------- 161 --------------
+  Sun Oct 09 15:41:18 PDT 2016
+ProcessKeyBinding 402 when=1476052878046 modifiers=0 code=a char=a false false
+--------------- 162 --------------
+  Sun Oct 09 15:41:20 PDT 2016
+ProcessKeyBinding 402 when=1476052880224 modifiers=0 code=a char=a false false
+--------------- 163 --------------
+  Sun Oct 09 15:41:22 PDT 2016
+ProcessKeyBinding 402 when=1476052882274 modifiers=0 code=a char=a false false
+--------------- 164 --------------
+  Sun Oct 09 15:41:24 PDT 2016
+ProcessKeyBinding 402 when=1476052884987 modifiers=0 code=a char=a false false
+--------------- 165 --------------
+  Sun Oct 09 15:41:33 PDT 2016
+ProcessKeyBinding 401 when=1476052893109 modifiers=80 code=11 char=ffff false false
+--------------- 166 --------------
+  Sun Oct 09 15:41:33 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@14].b'
+--------------- 167 --------------
+  Sun Oct 09 15:41:33 PDT 2016
+ProcessKeyBinding 400 when=1476052893979 modifiers=80 code=0 char=a false false
+--------------- 168 --------------
+  Sun Oct 09 15:41:34 PDT 2016
+ProcessKeyBinding 402 when=1476052894167 modifiers=0 code=11 char=ffff false false
+--------------- 169 --------------
+  Sun Oct 09 15:41:34 PDT 2016
+ProcessKeyBinding 401 when=1476052894788 modifiers=80 code=11 char=ffff false false
+--------------- 170 --------------
+  Sun Oct 09 15:41:34 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@9].b'
+--------------- 171 --------------
+  Sun Oct 09 15:41:34 PDT 2016
+ProcessKeyBinding 400 when=1476052894917 modifiers=80 code=0 char=a false false
+--------------- 172 --------------
+  Sun Oct 09 15:41:35 PDT 2016
+ProcessKeyBinding 402 when=1476052895049 modifiers=0 code=11 char=ffff false false
+--------------- 173 --------------
+  Sun Oct 09 15:41:36 PDT 2016
+ProcessKeyBinding 401 when=1476052896723 modifiers=80 code=11 char=ffff false false
+--------------- 174 --------------
+  Sun Oct 09 15:41:36 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    Resistance on node Resistor['res@12']
+    Resistance on node Resistor['res@11']
+    Resistance on node Resistor['res@10']
+    Resistance on node Resistor['res@13']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@13']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@12']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@11']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@10']
+--------------- 175 --------------
+  Sun Oct 09 15:41:36 PDT 2016
+ProcessKeyBinding 400 when=1476052896859 modifiers=80 code=0 char=a false false
+--------------- 176 --------------
+  Sun Oct 09 15:41:37 PDT 2016
+ProcessKeyBinding 402 when=1476052897127 modifiers=0 code=11 char=ffff false false
+--------------- 177 --------------
+  Sun Oct 09 15:41:40 PDT 2016
+ProcessKeyBinding 401 when=1476052900547 modifiers=80 code=11 char=ffff false false
+--------------- 178 --------------
+  Sun Oct 09 15:41:41 PDT 2016
+Menu Activated: Edit | Undo
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@10].a'
+--------------- 179 --------------
+  Sun Oct 09 15:41:41 PDT 2016
+ProcessKeyBinding 400 when=1476052901005 modifiers=80 code=0 char=1a false false
+--------------- 180 --------------
+  Sun Oct 09 15:41:41 PDT 2016
+ProcessKeyBinding 402 when=1476052901207 modifiers=0 code=11 char=ffff false false
+--------------- 181 --------------
+  Sun Oct 09 15:41:44 PDT 2016
+ProcessKeyBinding 401 when=1476052904197 modifiers=80 code=11 char=ffff false false
+--------------- 182 --------------
+  Sun Oct 09 15:41:45 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@10].b'
+--------------- 183 --------------
+  Sun Oct 09 15:41:45 PDT 2016
+ProcessKeyBinding 400 when=1476052905426 modifiers=80 code=0 char=a false false
+--------------- 184 --------------
+  Sun Oct 09 15:41:45 PDT 2016
+ProcessKeyBinding 402 when=1476052905566 modifiers=0 code=11 char=ffff false false
+--------------- 185 --------------
+  Sun Oct 09 15:41:46 PDT 2016
+ProcessKeyBinding 401 when=1476052906363 modifiers=80 code=11 char=ffff false false
+--------------- 186 --------------
+  Sun Oct 09 15:41:46 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@11].b'
+--------------- 187 --------------
+  Sun Oct 09 15:41:46 PDT 2016
+ProcessKeyBinding 400 when=1476052906483 modifiers=80 code=0 char=a false false
+--------------- 188 --------------
+  Sun Oct 09 15:41:46 PDT 2016
+ProcessKeyBinding 402 when=1476052906599 modifiers=0 code=11 char=ffff false false
+--------------- 189 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+ProcessKeyBinding 401 when=1476052907061 modifiers=80 code=11 char=ffff false false
+--------------- 190 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@12].b'
+--------------- 191 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+ProcessKeyBinding 400 when=1476052907149 modifiers=80 code=0 char=a false false
+--------------- 192 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+ProcessKeyBinding 402 when=1476052907265 modifiers=0 code=11 char=ffff false false
+--------------- 193 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+ProcessKeyBinding 401 when=1476052907703 modifiers=80 code=11 char=ffff false false
+--------------- 194 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@13].b'
+--------------- 195 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+ProcessKeyBinding 400 when=1476052907791 modifiers=80 code=0 char=a false false
+--------------- 196 --------------
+  Sun Oct 09 15:41:47 PDT 2016
+ProcessKeyBinding 402 when=1476052907909 modifiers=0 code=11 char=ffff false false
+--------------- 197 --------------
+  Sun Oct 09 15:41:48 PDT 2016
+ProcessKeyBinding 401 when=1476052908353 modifiers=80 code=11 char=ffff false false
+--------------- 198 --------------
+  Sun Oct 09 15:41:48 PDT 2016
+Menu Activated: Edit | Rotate | 90 Degrees Counterclockwise
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@15].a'
+--------------- 199 --------------
+  Sun Oct 09 15:41:48 PDT 2016
+ProcessKeyBinding 400 when=1476052908433 modifiers=80 code=0 char=a false false
+--------------- 200 --------------
+  Sun Oct 09 15:41:48 PDT 2016
+ProcessKeyBinding 402 when=1476052908510 modifiers=0 code=11 char=ffff false false
+--------------- 201 --------------
+  Sun Oct 09 15:43:10 PDT 2016
+Menu Activated: Edit | Move | Move Objects Right
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@12].a'
+--------------- 202 --------------
+  Sun Oct 09 15:43:11 PDT 2016
+Menu Activated: Edit | Move | Move Objects Left
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@12].a'
+--------------- 203 --------------
+  Sun Oct 09 15:43:54 PDT 2016
+Menu Activated: Edit | Erase | Selected
+Currently highlighted: 
+    Resistance on node Resistor['res@14']
+    Resistance on node Resistor['res@13']
+    Resistance on node Resistor['res@12']
+    Resistance on node Resistor['res@10']
+    Resistance on node Resistor['res@9']
+    Resistance on node Resistor['res@15']
+    Resistance on node Resistor['res@999']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@15']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@13']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@12']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@10']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@999']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@14']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@9']
+--------------- 204 --------------
+  Sun Oct 09 15:43:54 PDT 2016
+ProcessKeyBinding 400 when=1476053034705 modifiers=0 code=0 char=7f false false
+--------------- 205 --------------
+  Sun Oct 09 15:43:57 PDT 2016
+Menu Activated: Edit | Erase | Selected
+Currently highlighted: 
+    Resistance on node Resistor['res@7']
+    Resistance on node Resistor['res@3']
+    Resistance on node Resistor['res@4']
+    Resistance on node Resistor['res@6']
+    Resistance on node Resistor['res@8']
+    Resistance on node Resistor['res@0']
+    Resistance on node Resistor['res@1']
+    Resistance on node Resistor['res@2']
+    Resistance on node Resistor['res@5']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@0']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@1']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@2']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@5']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@6']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@8']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@4']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@3']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@7']
+--------------- 206 --------------
+  Sun Oct 09 15:43:57 PDT 2016
+ProcessKeyBinding 400 when=1476053037718 modifiers=0 code=0 char=7f false false
+--------------- 207 --------------
+  Sun Oct 09 15:44:25 PDT 2016
+ProcessKeyBinding 401 when=1476053065814 modifiers=80 code=11 char=ffff false false
+--------------- 208 --------------
+  Sun Oct 09 15:44:26 PDT 2016
+ProcessKeyBinding 402 when=1476053066172 modifiers=0 code=11 char=ffff false false
+--------------- 209 --------------
+  Sun Oct 09 15:44:26 PDT 2016
+Menu Activated: Edit | Modes | Edit | Toggle Zoom
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 210 --------------
+  Sun Oct 09 15:44:26 PDT 2016
+ProcessKeyBinding 400 when=1476053066439 modifiers=0 code=0 char=7a(z) false false
+--------------- 211 --------------
+  Sun Oct 09 15:44:26 PDT 2016
+Menu Activated: Edit | Modes | Edit | Toggle Zoom
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 212 --------------
+  Sun Oct 09 15:44:26 PDT 2016
+ProcessKeyBinding 400 when=1476053066692 modifiers=0 code=0 char=7a(z) false false
+--------------- 213 --------------
+  Sun Oct 09 15:44:27 PDT 2016
+Menu Activated: Edit | Modes | Edit | Toggle Zoom
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 214 --------------
+  Sun Oct 09 15:44:27 PDT 2016
+ProcessKeyBinding 400 when=1476053067304 modifiers=0 code=0 char=7a(z) false false
+--------------- 215 --------------
+  Sun Oct 09 15:44:27 PDT 2016
+Menu Activated: Edit | Modes | Edit | Toggle Zoom
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 216 --------------
+  Sun Oct 09 15:44:27 PDT 2016
+ProcessKeyBinding 400 when=1476053067717 modifiers=0 code=0 char=7a(z) false false
+--------------- 217 --------------
+  Sun Oct 09 15:44:29 PDT 2016
+Menu Activated: Edit | Modes | Edit | Toggle Zoom
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 218 --------------
+  Sun Oct 09 15:44:29 PDT 2016
+ProcessKeyBinding 400 when=1476053069414 modifiers=0 code=0 char=7a(z) false false
+--------------- 219 --------------
+  Sun Oct 09 15:44:30 PDT 2016
+Menu Activated: Edit | Move | Move Objects Up
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 220 --------------
+  Sun Oct 09 15:44:30 PDT 2016
+Menu Activated: Edit | Move | Move Objects Up
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 221 --------------
+  Sun Oct 09 15:44:31 PDT 2016
+Menu Activated: Edit | Move | Move Objects Down
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 222 --------------
+  Sun Oct 09 15:44:31 PDT 2016
+Menu Activated: Edit | Move | Move Objects Down
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 223 --------------
+  Sun Oct 09 15:44:31 PDT 2016
+Menu Activated: Edit | Move | Move Objects Down
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 224 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+Menu Activated: Shortcuts | Wire Down One Level
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 225 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+ProcessKeyBinding 400 when=1476053072370 modifiers=0 code=0 char=2d(-) false false
+--------------- 226 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+Menu Activated: Shortcuts | Wire Down One Level
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 227 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+ProcessKeyBinding 400 when=1476053072543 modifiers=0 code=0 char=2d(-) false false
+--------------- 228 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+Menu Activated: Shortcuts | Wire Down One Level
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 229 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+ProcessKeyBinding 400 when=1476053072701 modifiers=0 code=0 char=2d(-) false false
+--------------- 230 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+Menu Activated: Shortcuts | Wire Down One Level
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 231 --------------
+  Sun Oct 09 15:44:32 PDT 2016
+ProcessKeyBinding 400 when=1476053072875 modifiers=0 code=0 char=2d(-) false false
+--------------- 232 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 401 when=1476053073243 modifiers=40 code=10 char=ffff false false
+--------------- 233 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 401 when=1476053073414 modifiers=40 code=209 char=3f(?) false false
+--------------- 234 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 400 when=1476053073414 modifiers=40 code=0 char=3f(?) false false
+--------------- 235 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 402 when=1476053073485 modifiers=40 code=209 char=3f(?) false false
+--------------- 236 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 401 when=1476053073580 modifiers=40 code=209 char=3f(?) false false
+--------------- 237 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 400 when=1476053073580 modifiers=40 code=0 char=3f(?) false false
+--------------- 238 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 402 when=1476053073643 modifiers=40 code=209 char=3f(?) false false
+--------------- 239 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 401 when=1476053073713 modifiers=40 code=209 char=3f(?) false false
+--------------- 240 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 400 when=1476053073713 modifiers=40 code=0 char=3f(?) false false
+--------------- 241 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 402 when=1476053073800 modifiers=40 code=209 char=3f(?) false false
+--------------- 242 --------------
+  Sun Oct 09 15:44:33 PDT 2016
+ProcessKeyBinding 402 when=1476053073858 modifiers=0 code=10 char=ffff false false
+--------------- 243 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+Menu Activated: Shortcuts | Wire Down One Level
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 244 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 400 when=1476053074029 modifiers=0 code=0 char=2d(-) false false
+--------------- 245 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+Menu Activated: Shortcuts | Wire Down One Level
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 246 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 400 when=1476053074195 modifiers=0 code=0 char=2d(-) false false
+--------------- 247 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 401 when=1476053074504 modifiers=0 code=209 char=2b(+) false false
+--------------- 248 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 400 when=1476053074504 modifiers=0 code=0 char=2b(+) false false
+--------------- 249 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 402 when=1476053074575 modifiers=0 code=209 char=2b(+) false false
+--------------- 250 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 401 when=1476053074654 modifiers=0 code=209 char=2b(+) false false
+--------------- 251 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 400 when=1476053074654 modifiers=0 code=0 char=2b(+) false false
+--------------- 252 --------------
+  Sun Oct 09 15:44:34 PDT 2016
+ProcessKeyBinding 402 when=1476053074724 modifiers=0 code=209 char=2b(+) false false
+--------------- 253 --------------
+  Sun Oct 09 15:44:35 PDT 2016
+ProcessKeyBinding 401 when=1476053075127 modifiers=0 code=1b char=1b false false
+--------------- 254 --------------
+  Sun Oct 09 15:44:35 PDT 2016
+ProcessKeyBinding 400 when=1476053075127 modifiers=0 code=0 char=1b false false
+--------------- 255 --------------
+  Sun Oct 09 15:44:35 PDT 2016
+ProcessKeyBinding 402 when=1476053075246 modifiers=0 code=1b char=1b false false
+--------------- 256 --------------
+  Sun Oct 09 15:44:41 PDT 2016
+ProcessKeyBinding 401 when=1476053081386 modifiers=0 code=1b char=1b false false
+--------------- 257 --------------
+  Sun Oct 09 15:44:41 PDT 2016
+ProcessKeyBinding 400 when=1476053081386 modifiers=0 code=0 char=1b false false
+--------------- 258 --------------
+  Sun Oct 09 15:44:41 PDT 2016
+ProcessKeyBinding 402 when=1476053081553 modifiers=0 code=1b char=1b false false
+--------------- 259 --------------
+  Sun Oct 09 15:44:42 PDT 2016
+ProcessKeyBinding 401 when=1476053082716 modifiers=80 code=11 char=ffff false false
+--------------- 260 --------------
+  Sun Oct 09 15:44:43 PDT 2016
+ProcessKeyBinding 402 when=1476053083250 modifiers=0 code=11 char=ffff false false
+--------------- 261 --------------
+  Sun Oct 09 15:44:44 PDT 2016
+Menu Activated: Edit | Modes | Edit | Click/Zoom/Wire
+Currently highlighted: 
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': 'Resistor[res@1000].b'
+--------------- 262 --------------
+  Sun Oct 09 15:44:47 PDT 2016
+ProcessKeyBinding 401 when=1476053087309 modifiers=80 code=11 char=ffff false false
+--------------- 263 --------------
+  Sun Oct 09 15:44:49 PDT 2016
+ProcessKeyBinding 402 when=1476053089566 modifiers=0 code=11 char=ffff false false
+--------------- 264 --------------
+  Sun Oct 09 15:44:52 PDT 2016
+Menu Activated: Edit | Erase | Selected
+Currently highlighted: 
+    Resistance on node Resistor['res@1000']
+    com.sun.electric.tool.user.HighlightEOBJ in cell 'Heater_Schematic{sch}': Resistor['res@1000']
+--------------- 265 --------------
+  Sun Oct 09 15:44:52 PDT 2016
+ProcessKeyBinding 400 when=1476053092945 modifiers=0 code=0 char=7f false false
+--------------- 266 --------------
+  Sun Oct 09 15:45:03 PDT 2016
+Menu Activated: Edit | Change...
+--------------- 267 --------------
+  Sun Oct 09 15:45:30 PDT 2016
+Menu Activated: Edit | Change...
+--------------- 268 --------------
+  Sun Oct 09 15:45:42 PDT 2016
+ProcessKeyBinding 401 when=1476053142800 modifiers=0 code=1b char=1b false false
+--------------- 269 --------------
+  Sun Oct 09 15:45:42 PDT 2016
+ProcessKeyBinding 400 when=1476053142800 modifiers=0 code=0 char=1b false false
+--------------- 270 --------------
+  Sun Oct 09 15:45:42 PDT 2016
+ProcessKeyBinding 402 when=1476053142919 modifiers=0 code=1b char=1b false false
+--------------- 271 --------------
+  Sun Oct 09 15:45:43 PDT 2016
+ProcessKeyBinding 401 when=1476053143260 modifiers=40 code=10 char=ffff false false
+--------------- 272 --------------
+  Sun Oct 09 15:45:43 PDT 2016
+ProcessKeyBinding 401 when=1476053143296 modifiers=40 code=20c char=ffff false false

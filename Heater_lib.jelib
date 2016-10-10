@@ -1,0 +1,21 @@
+# header information:
+HHeater_lib|9.06
+
+# Views:
+Vschematic|sch
+
+# Cell Heater_Schematic;1{sch}
+CHeater_Schematic;1{sch}||schematic|1476051449579|1476053092947|
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NOff-Page|conn@0||-135|31||||
+NOff-Page|conn@1||-135|28||||
+NOff-Page|conn@2||-135|25||||
+NOff-Page|conn@3||-135|22||||
+NOff-Page|conn@4||-135|19||||
+NOff-Page|conn@5||-135|16||||
+NSwitch|node@0||-102|47||||
+NSwitch|node@1||-102|41||||
+NSwitch|node@2||-102|35||||
+NSwitch|node@3||-102|15||||
+NSwitch|node@4||-102|4||||
+X
