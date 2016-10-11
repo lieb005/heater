@@ -47,9 +47,10 @@
 
 // Heat 1, 2, and fan are all 5V active.
 
-enum {OFF = 0, IDLE, TIMER_SET};
-enum heat {FAN, HEAT1, HEAT2};
-enum timer {HIGH_HOUR, HIGH_TEMP, LOW_HOUR, LOW_TEMP};
+typedef enum {OFF = 0, ERR, IDLE, TIMER_SET, TIME_SET} global_state;
+typedef enum {FAN, HEAT1, HEAT2} heat_state;
+typedef enum {HIGH_HOUR, HIGH_TEMP, LOW_HOUR, LOW_TEMP} timer_set_state;
+typedef enum {KEYS, LEDS, DISP1, DISP2} scan_state;
 
 #define BIT0 0b1
 #define BIT1 0b10
@@ -83,18 +84,6 @@ enum timer {HIGH_HOUR, HIGH_TEMP, LOW_HOUR, LOW_TEMP};
 #define LED_F_TRIS TRISB0
 #define LED_F_MASK BIT6
 
-typedef union led_digit_union {
-	char segment_bits;
-	struct led_digit_struct {
-		char A : 1;
-		char B : 1;
-		char C : 1;
-		char D : 1;
-		char E : 1;
-		char F : 1;
-	} segments;
-} digit;
-digit num_to_disp(char num);
 
 #define LED_CATHODE LATA3
 #define LED_CATHODE_TRIS TRISA3
@@ -152,12 +141,37 @@ digit num_to_disp(char num);
 #define IR_IN RA1
 #define IR_IN_TRIS TRISA1
 
+#define BUZZER LATA2
+#define BUZZER_TRIS TRISA2
+
 #define HEAT1 LATC0
 #define HEAT1_TRIS TRISC0
 #define HEAT2 LATC1
 #define HEAT2_TRIS TRISC1
 #define FAN LATC2
 #define FAN_TRIS TRISC2
+
+#define A BIT0
+#define B BIT1
+#define C BIT2
+#define D BIT3
+#define E BIT4
+#define F BIT5
+#define G BIT6
+
+const unsigned char font[] =
+{
+	A | B | C | D | E | F | 0, //0
+	0 | B | C | 0 | 0 | 0 | 0, //1
+	A | B | 0 | D | E | 0 | G, //2
+	A | B | C | D | 0 | 0 | G, //3
+	0 | B | C | 0 | 0 | F | G, //4
+	A | 0 | C | D | 0 | F | G, //5
+	A | 0 | C | D | E | F | G, //6 (hooked top)
+	A | B | C | 0 | 0 | 0 | 0, //7
+	A | B | C | D | E | F | G, //8
+	A | B | C | 0 | 0 | F | G, //9 (straight bottom)
+};
 
 #endif	/* MAIN_H */
 

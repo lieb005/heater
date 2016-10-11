@@ -4624,29 +4624,31 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 50 "main.h"
-enum {OFF = 0, IDLE, TIMER_SET};
-enum heat {FAN, HEAT1, HEAT2};
-enum timer {HIGH_HOUR, HIGH_TEMP, LOW_HOUR, LOW_TEMP};
+typedef enum {OFF = 0, ERR, IDLE, TIMER_SET, TIME_SET} global_state;
+typedef enum {FAN, HEAT1, HEAT2} heat_state;
+typedef enum {HIGH_HOUR, HIGH_TEMP, LOW_HOUR, LOW_TEMP} timer_set_state;
+typedef enum {KEYS, LEDS, DISP1, DISP2} scan_state;
 
-# 86
-typedef union led_digit_union {
-char segment_bits;
-struct led_digit_struct {
-char A : 1;
-char B : 1;
-char C : 1;
-char D : 1;
-char E : 1;
-char F : 1;
-} segments;
-} digit;
-digit num_to_disp(char num);
+# 162
+const unsigned char font[] =
+{
+0b1 | 0b10 | 0b100 | 0b1000 | 0b10000 | 0b100000 | 0,
+0 | 0b10 | 0b100 | 0 | 0 | 0 | 0,
+0b1 | 0b10 | 0 | 0b1000 | 0b10000 | 0 | 0b1000000,
+0b1 | 0b10 | 0b100 | 0b1000 | 0 | 0 | 0b1000000,
+0 | 0b10 | 0b100 | 0 | 0 | 0b100000 | 0b1000000,
+0b1 | 0 | 0b100 | 0b1000 | 0 | 0b100000 | 0b1000000,
+0b1 | 0 | 0b100 | 0b1000 | 0b10000 | 0b100000 | 0b1000000,
+0b1 | 0b10 | 0b100 | 0 | 0 | 0 | 0,
+0b1 | 0b10 | 0b100 | 0b1000 | 0b10000 | 0b100000 | 0b1000000,
+0b1 | 0b10 | 0b100 | 0 | 0 | 0b100000 | 0b1000000,
+};
 
 
 # 13 "main.c"
 #pragma config FOSC = INTOSCIO_EC
 #pragma config MCLRE = 1
-#pragma config PBADEN = 0
+#pragma config PBADEN = 1
 #pragma config WDT = 0
 #pragma config PWRT = 1
 #pragma config LPT1OSC = 0
@@ -4656,55 +4658,57 @@ digit num_to_disp(char num);
 
 void setup();
 void set_LEDs(char mask);
-void set_disp(char num, char digit_mask);
+void set_digit(unsigned char dig, char num);
 char sample_inputs();
+float get_temp();
 
 void save_state();
 
 void read_state();
 
 void error(char code);
+unsigned char num_to_disp(char num);
+void buzzer(char duration);
 
 char temp_want;
-float temp_cur;
-char hour_cur, high_hour, low_hour;
+
+long time;
+char high_hour, low_hour;
 char high_temp, low_temp;
+bit timer = 0, unit = 0;
+char *cur_number = &temp_want;
+global_state state = OFF;
+heat_state heat_mode;
+float temp_cur;
+unsigned char disp[2];
+
+bit timer_led = 0, power_led = 0;
 
 void main(void)
 {
 setup();
-static bit timer = 0, heat_mode = 0, unit = 0;
-char ins, mask_leds, disp_digit_mask;
-static char *cur_number = &temp_want;
-static char state = OFF;
-digit display[2];
 while (1)
 {
+if (state == ERR)
+{
 
-if (ins & 0b10000) state = ((state !=OFF) ? OFF : IDLE);
-if (TMR1)
-if (state == OFF) continue;
 
-if (ins & 0b1) timer;
-
-if (ins & 0b10) (*cur_number)++;
-
-if (ins & 0b100) (*cur_number)--;
-
-if (ins & 0b1000) unit = 1 - unit;
-
-if (ins & 0b100000) ;
-mask_leds = ((timer == 1) ? 0b1 : 0) |
-((hour_cur >= high_hour && hour_cur < low_hour) ? 0b10 : 0) |
-((hour_cur < high_hour || hour_cur >= low_hour) ? 0b100 : 0) |
-(((heat_mode != heat.LATC0 && heat_mode != heat.LATC1)) ? 0b1000 : 0) |
-(0b10000) |
-(unit == 0 ? 0b100000 : 0b1000000);
-set_LEDs(mask_leds);
-
-set_disp(display);
+}
 temp_cur = get_temp();
-if (temp_cur > 40) error();
+if (temp_cur > 40)
+{
+state = ERR;
+error(1);
+}
+if (state != OFF) continue;
+if (timer)
+{
+
+}
+else
+{
+
+}
 
 }
 return;
@@ -4732,6 +4736,11 @@ setup_therm();
 
 
 nRBPU = 0;
+
+TRISA4 = 0;
+TRISA5 = 0;
+TRISA3 = 0;
+TRISA2 = 0;
 
 
 IPEN = 1;
@@ -4793,6 +4802,7 @@ T0PS0 = T0PS1 = T0PS2 = 1;
 
 }
 
+
 void setup_timer1()
 {
 
@@ -4803,12 +4813,17 @@ T1RD16 = 1;
 T1RUN = 0;
 TMR1CS = 0;
 
-TMR1IE = 0;
+TMR1IE = 1;
 TMR1IF = 0;
-TMR1IP = 0;
+TMR1IP = 1;
 
 T1CKPS0 = T1CKPS1 = 1;
+
+TMR1 = 0xFFFF - 15625;
+
+TMR1ON = 1;
 }
+
 
 
 void setup_timer2()
@@ -4816,70 +4831,197 @@ void setup_timer2()
 
 TMR2ON = 0;
 
-T2OUTPS0 = T2OUTPS1 = T2OUTPS2 = T2OUTPS3 = 0;
-
-T2CKPS0 = T2CKPS1 = 1;
+T2CKPS0 = 1;
+T2CKPS1 = 0;
 
 TMR2 = 0;
 
 
-PR2 = 208;
+PR2 = 0xFF;
+
+T2OUTPS0 = 0;
+T2OUTPS1 = 0;
+T2OUTPS2 = 0;
+T2OUTPS3 = 0;
 
 TMR2IE = 1;
 TMR2IF = 0;
 TMR2IP = 0;
+
+TMR2ON = 1;
 }
 
-void error()
+void error(char code)
 {
-set_dis
+
+disp[0] = num_to_disp('E');
+disp[1] = num_to_disp(code);
+set_digit(disp[0], 0);
+set_digit(disp[1], 1);
 }
 
 float get_temp()
 {
 
+GO = 1;
+while (GO);
+
+float temp = ((double) ADRES) / ((double) (1L << 16));
+
+return temp;
 }
 
 char sample_inputs()
 {
+
 LATA3 = 1;
+LATA4 = 1;
+LATA5 = 1;
+
 TRISB = 0xFF;
 return PORTB;
 }
 
 void set_LEDs(char mask)
 {
-TRISB = 0xFF;
-TRISA3 = 0;
+TRISB = 0;
+LATA4 = 1;
+LATA5 = 1;
 LATA3 = 0;
+LATB = mask;
 }
 
-digit num_to_disp()
+unsigned char num_to_disp(char num)
 {
-
+unsigned char ret;
+switch (num)
+{
+case 0 ... 9:
+ret = font[num];
+break;
+case 'E':
+case 'e':
+ret = (0b1 | 0 | 0 | 0b1000 | 0b10000 | 0b100000 | 0b1000000);
+break;
+default:
+ret = (0);
+break;
+}
+return ret;
 }
 
-void set_disp(digit disp[2])
+
+void set_digit(unsigned char dig, char num)
 {
-TRISB = 0xFF;
+
+TRISB = 0x00;
+
 LATA3 = 1;
-TRISA4 = 0;
-TRISA5 = 0;
-LATA4 = 0 & 0b1;
-LATA5 = 0 & 0b10;
+
+LATA4 = num;
+LATA5 = !num;
+
+LATB2 = 0!=(dig & 0b1);
+LATB5 = 0!=(dig & 0b10);
+LATB3 = 0!=(dig & 0b100);
+LATB0 = 0!=(dig & 0b1000);
+LATB4 = 0!=(dig & 0b10000);
+LATB1 = 0!=(dig & 0b100000);
+LATB6 = 0!=(dig & 0b1000000);
+}
+
+void buzzer(char duration)
+{
+
+
 
 }
 
 void interrupt high_priority ISR_high()
 {
-if (TMR0IE && TMR0IF)
+if (TMR1IE && TMR1IF)
 {
-TMR0IF = 0;
+TMR1IF = 0;
+
+TMR1 = 0xFFFF - 15625;
+time = (long)(time + 1) % (3600L * 24L);
 return;
 }
+
 }
 
 void interrupt low_priority ISR_low()
 {
 
+if (TMR0IE && TMR0IF)
+{
+
+}
+
+scan_state cur = KEYS;
+unsigned char ins = 0;
+static unsigned char ins_prev = 0;
+unsigned char mask_leds;
+
+if (TMR2IE && TMR2IF)
+{
+TMR2IF = 0;
+switch (cur)
+{
+case KEYS:
+
+ins_prev = ins;
+
+ins = sample_inputs();
+
+
+if ((ins & 0b10000) && !(ins_prev && 0b10000))
+{
+state = ((state != OFF) ? OFF : IDLE);
+}
+
+if (state == OFF) break;
+
+if ((ins & 0b1) && !(ins_prev && 0b1))
+{
+
+}
+
+
+if ((ins & 0b10) && !(ins_prev && 0b10))
+{
+(*cur_number)++;
+}
+
+
+if ((ins & 0b100) && !(ins_prev && 0b100))
+{
+(*cur_number)--;
+}
+
+if ((ins & 0b1000) && !(ins_prev && 0b1000))
+{
+unit = 1 - unit;
+}
+
+if ((ins & 0b100000) && !(ins_prev && 0b100000))
+buzzer(1);
+break;
+case LEDS:
+mask_leds = (timer_led ? 0b1 : 0) |
+(timer && (((time / 3600) >= high_hour && (time / 3600) < low_hour) ? 0b10 : 0)) |
+(timer && (((time / 3600) < high_hour || (time / 3600) >= low_hour) ? 0b100 : 0)) |
+((heat_mode != LATC0 && heat_mode != LATC1) ? 0b1000 : 0) |
+(power_led ? 0b10000 : 0) |
+(unit ? 0b1000000 : 0b100000);
+set_LEDs(mask_leds);
+break;
+case DISP1:
+set_digit(disp[0], 0);
+break;
+case DISP2:
+set_digit(disp[1], 1);
+break;
+}
+}
 }
