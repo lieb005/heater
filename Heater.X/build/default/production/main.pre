@@ -4623,13 +4623,18 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 50 "main.h"
-typedef enum {OFF = 0, ERR, IDLE, TIMER_SET, TIME_SET} global_state;
-typedef enum {FAN, HEAT1, HEAT2} heat_state;
-typedef enum {HIGH_HOUR, HIGH_TEMP, LOW_HOUR, LOW_TEMP} timer_set_state;
-typedef enum {KEYS, LEDS, DISP1, DISP2} scan_state;
+# 79 "main.h"
+typedef enum {_OFF = 0, _ERR, _IDLE, _TIMER_SET, _TIME_SET} global_state;
+typedef enum {_NONE, _FAN, _HEAT1, _HEAT_BOTH} heat_state;
+typedef enum {_COOL, _HEAT, _BOTH} heat_or_cool;
+typedef enum {_HIGH_HOUR, _HIGH_TEMP, _LOW_HOUR, _LOW_TEMP} timer_set_state;
+typedef enum {_KEYS, _LEDS, _DISP1, _DISP2} scan_state;
 
-# 162
+# 5 "disp.h"
+unsigned char num_to_disp(char num);
+void set_digit(unsigned char dig, char num);
+
+# 58
 const unsigned char font[] =
 {
 0b1 | 0b10 | 0b100 | 0b1000 | 0b10000 | 0b100000 | 0,
@@ -4645,20 +4650,19 @@ const unsigned char font[] =
 };
 
 
-# 13 "main.c"
+# 14 "main.c"
 #pragma config FOSC = INTOSCIO_EC
 #pragma config MCLRE = 1
 #pragma config PBADEN = 1
 #pragma config WDT = 0
 #pragma config PWRT = 1
 #pragma config LPT1OSC = 0
-#pragma config DEBUG = 0
+#pragma config DEBUG = 1
 
 
 
 void setup();
 void set_LEDs(char mask);
-void set_digit(unsigned char dig, char num);
 char sample_inputs();
 float get_temp();
 
@@ -4670,50 +4674,160 @@ void error(char code);
 unsigned char num_to_disp(char num);
 void buzzer(char duration);
 
+void set_key_led_disp_tris(unsigned char dir);
+
+
 char temp_want;
 
 long time;
-char high_hour, low_hour;
-char high_temp, low_temp;
+
+
+char day_hour, night_hour;
+
+char day_temp, night_temp;
+
 bit timer = 0, unit = 0;
+
 char *cur_number = &temp_want;
-global_state state = OFF;
-heat_state heat_mode;
+
+global_state state = _OFF;
+
+heat_state heat_mode = _HEAT_BOTH;
+
+heat_state heat_cur;
+
+heat_or_cool climate_control = _HEAT;
+
 float temp_cur;
+
 unsigned char disp[2];
 
+unsigned char buzz = 0, blink = 0;
+
 bit timer_led = 0, power_led = 0;
+
+
+char fan_timeout = 0;
 
 void main(void)
 {
 setup();
 while (1)
 {
-if (state == ERR)
+if (state == _ERR)
 {
+LATC1 = 0;
+LATC2 = 0;
+LATC0 = 0;
+
 
 
 }
 temp_cur = get_temp();
 if (temp_cur > 40)
 {
-state = ERR;
+state = _ERR;
 error(1);
+continue;
 }
-if (state != OFF) continue;
+if (state != _OFF) continue;
 if (timer)
 {
 
+if (time / 3600 >= day_hour && time / 3600 < night_hour)
+{
+
+if (temp_cur > (day_temp + 3))
+{
+
+
+if (climate_control != _HEAT)
+{
+heat_cur = _FAN;
 }
+}
+else if (temp_cur <= (day_temp + 3))
+{
+
+
+if (climate_control != _FAN)
+{
+
+heat_cur = heat_mode;
+}
+}
+}
+
 else
 {
 
+if (temp_cur > (night_temp + 3))
+{
+
+if (climate_control != _HEAT)
+{
+heat_cur = _FAN;
+}
+}
+else if (temp_cur < (night_temp + 3))
+{
+
+if (climate_control != _FAN)
+{
+heat_cur = heat_mode;
+}
+}
+}
 }
 
+else
+{
+
+if (temp_cur > (temp_want + 3))
+{
+
+if (climate_control != _HEAT)
+{
+heat_cur = _FAN;
+}
+}
+else if (temp_cur < (temp_want + 3))
+{
+
+if (climate_control != _FAN)
+{
+heat_cur = heat_mode;
+}
+}
+}
+
+
+
+
+switch (heat_cur)
+{
+case _HEAT1:
+
+if (time%2) LATC1 = 1, LATC2 = 0;
+else LATC1 = 0, LATC2 = 1;
+fan_timeout = 30;
+break;
+case _HEAT_BOTH:
+LATC1 = 1;
+LATC2 = 1;
+fan_timeout = 30;
+break;
+case _FAN:
+fan_timeout = 1;
+}
+
+if (fan_timeout) LATC0 = 1;
+else LATC0 = 0;
 }
 return;
 }
 
+void setup_io();
 void setup_therm();
 void setup_timer0();
 void setup_timer1();
@@ -4727,25 +4841,15 @@ SCS0 = 1;
 SCS1 = 1;
 INTSRC = 1;
 
+
 IRCF2 = 0;
-IRCF1 = 0;
+IRCF1 = 1;
 IRCF0 = 1;
 
 
 setup_therm();
 
-
-nRBPU = 0;
-
-TRISA4 = 0;
-TRISA5 = 0;
-TRISA3 = 0;
-TRISA2 = 0;
-
-
-IPEN = 1;
-GIEH = 1;
-GIEL = 0;
+setup_io();
 
 
 setup_timer0();
@@ -4754,6 +4858,29 @@ setup_timer1();
 
 setup_timer2();
 
+
+IPEN = 1;
+GIEH = 1;
+GIEL = 0;
+}
+
+void setup_io()
+{
+
+nRBPU = 0;
+
+TRISA3 = 0;
+TRISA3 = 1;
+TRISA4 = 0;
+TRISA4 = 1;
+TRISA2 = 0;
+LATA2 = 1;
+TRISA5 = 0;
+LATA5 = 0;
+
+TRISC1 = 0;
+TRISC2 = 0;
+TRISC0 = 0;
 }
 
 void setup_therm()
@@ -4779,6 +4906,7 @@ ADCS2 = 1;
 ADCS1 = 0;
 ADCS0 = 1;
 }
+
 
 
 void setup_timer0()
@@ -4817,9 +4945,11 @@ TMR1IE = 1;
 TMR1IF = 0;
 TMR1IP = 1;
 
+
+
 T1CKPS0 = T1CKPS1 = 1;
 
-TMR1 = 0xFFFF - 15625;
+TMR1 = 0xFFFF - (int) ((double) 500000 / 4.0 / 8.0);
 
 TMR1ON = 1;
 }
@@ -4866,7 +4996,7 @@ float get_temp()
 GO = 1;
 while (GO);
 
-float temp = ((double) ADRES) / ((double) (1L << 16));
+float temp = ((double) ADRES) * 5.0 * 1/ ((double) (1L << 16)) + 0;
 
 return temp;
 }
@@ -4874,9 +5004,11 @@ return temp;
 char sample_inputs()
 {
 
+set_key_led_disp_tris(1);
+
+LATA2 = 1;
 LATA3 = 1;
 LATA4 = 1;
-LATA5 = 1;
 
 TRISB = 0xFF;
 return PORTB;
@@ -4885,80 +5017,81 @@ return PORTB;
 void set_LEDs(char mask)
 {
 TRISB = 0;
-LATA4 = 1;
-LATA5 = 1;
-LATA3 = 0;
-LATB = mask;
-}
-
-unsigned char num_to_disp(char num)
-{
-unsigned char ret;
-switch (num)
-{
-case 0 ... 9:
-ret = font[num];
-break;
-case 'E':
-case 'e':
-ret = (0b1 | 0 | 0 | 0b1000 | 0b10000 | 0b100000 | 0b1000000);
-break;
-default:
-ret = (0);
-break;
-}
-return ret;
-}
-
-
-void set_digit(unsigned char dig, char num)
-{
-
-TRISB = 0x00;
-
 LATA3 = 1;
-
-LATA4 = num;
-LATA5 = !num;
-
-LATB2 = 0!=(dig & 0b1);
-LATB5 = 0!=(dig & 0b10);
-LATB3 = 0!=(dig & 0b100);
-LATB0 = 0!=(dig & 0b1000);
-LATB4 = 0!=(dig & 0b10000);
-LATB1 = 0!=(dig & 0b100000);
-LATB6 = 0!=(dig & 0b1000000);
+LATA4 = 1;
+LATA2 = 0;
+LATB = mask;
 }
 
 void buzzer(char duration)
 {
 
+buzz = duration;
 
-
+LATA5 = 1;
 }
+
+void set_key_led_disp_tris(unsigned char dir)
+{
+
+
+TRISA6 = dir;
+TRISB1 = dir;
+TRISB2 = dir;
+TRISB3 = dir;
+TRISB4 = dir;
+TRISB5 = dir;
+TRISB0 = dir;
+}
+
+
 
 void interrupt high_priority ISR_high()
 {
 if (TMR1IE && TMR1IF)
 {
+
+# 419
+TMR1 += 0xFFFF - (500000 / 32);
+
 TMR1IF = 0;
 
-TMR1 = 0xFFFF - 15625;
-time = (long)(time + 1) % (3600L * 24L);
+time = (long) (time + 1) % (3600L * 24L);
+
+fan_timeout--;
+
 return;
 }
-
 }
+
+
 
 void interrupt low_priority ISR_low()
 {
 
 if (TMR0IE && TMR0IF)
 {
+blink = ~blink;
 
+
+
+
+if (buzz && --buzz)
+{
+
+LATA5 = 1;
 }
 
-scan_state cur = KEYS;
+else
+{
+LATA5 = 0;
+}
+
+
+return;
+}
+
+scan_state cur = _KEYS;
 unsigned char ins = 0;
 static unsigned char ins_prev = 0;
 unsigned char mask_leds;
@@ -4968,7 +5101,7 @@ if (TMR2IE && TMR2IF)
 TMR2IF = 0;
 switch (cur)
 {
-case KEYS:
+case _KEYS:
 
 ins_prev = ins;
 
@@ -4977,10 +5110,17 @@ ins = sample_inputs();
 
 if ((ins & 0b10000) && !(ins_prev && 0b10000))
 {
-state = ((state != OFF) ? OFF : IDLE);
+state = ((state != _OFF) ? _OFF : _IDLE);
 }
 
-if (state == OFF) break;
+if (state == _OFF)
+{
+disp[0] = 0;
+disp[1] = 1;
+LATC1 = 0;
+LATC2 = 0;
+break;
+}
 
 if ((ins & 0b1) && !(ins_prev && 0b1))
 {
@@ -5007,21 +5147,27 @@ unit = 1 - unit;
 if ((ins & 0b100000) && !(ins_prev && 0b100000))
 buzzer(1);
 break;
-case LEDS:
+case _LEDS:
+LATA3 = 1;
+LATA4 = 1;
 mask_leds = (timer_led ? 0b1 : 0) |
-(timer && (((time / 3600) >= high_hour && (time / 3600) < low_hour) ? 0b10 : 0)) |
-(timer && (((time / 3600) < high_hour || (time / 3600) >= low_hour) ? 0b100 : 0)) |
-((heat_mode != LATC0 && heat_mode != LATC1) ? 0b1000 : 0) |
+(timer && (((time / 3600) >= day_hour && (time / 3600) < night_hour) ? 0b10 : 0)) |
+(timer && (((time / 3600) < day_hour || (time / 3600) >= night_hour) ? 0b100 : 0)) |
+((heat_mode != LATC1 && heat_mode != LATC2) ? 0b1000 : 0) |
 (power_led ? 0b10000 : 0) |
 (unit ? 0b1000000 : 0b100000);
 set_LEDs(mask_leds);
 break;
-case DISP1:
+case _DISP1:
+LATA2 = 1;
 set_digit(disp[0], 0);
 break;
-case DISP2:
+case _DISP2:
+LATA2 = 1;
 set_digit(disp[1], 1);
 break;
 }
+
+return;
 }
 }

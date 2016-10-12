@@ -8,16 +8,10 @@
 #ifndef RC5_H
 #define	RC5_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif
+// Do a table maybe?
+// Do a decode function
+//   What would that return?  ENUM of fns
+// Then need to make enum, too
 
 #endif	/* RC5_H */
 
