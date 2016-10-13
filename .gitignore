@@ -34,3 +34,6 @@
 /Heater.X/dist/default/
 
 /Heater.X/build/
+
+# Backup files
+*.*~
