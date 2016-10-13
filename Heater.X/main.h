@@ -148,10 +148,14 @@ typedef enum {_KEYS, _LEDS, _DISP1, _DISP2} scan_state;
 #define THERM AN0
 #define THERM_TRIS TRISA0
 // Constants for converting the voltage to temperature, 
-// assuming a linear temperature curve
-// *C = therm_raw * K + offset
-#define TEMP_K 1
-#define TEMP_OFFSET 0
+// Guessing this because it's most common
+#define TEMP_R_CURRENT (1.00e3)
+#define TEMP_ZERO 100
+// Constants for equation for temp
+#define TEMP_A (3.9083e-3)
+#define TEMP_B (-5.775e-7)
+// Not used when measuring positive voltages
+#define TEMP_C (-4.183e-12)
 
 // We need to do RC5 protocol magic on this.
 // Can we use the serial module?  Probably not

@@ -7,6 +7,7 @@
 
 
 #include <xc.h>
+#include <math.h>
 #include "main.h"
 #include "rc5.h"
 #include "disp.h"
@@ -356,7 +357,15 @@ float get_temp()
 	GO = 1;
 	while (GO);
 	// Cast the two ten bit numbers to doubles 
-	float temp = ((double) ADRES) * 5.0 * TEMP_K/ ((double) (1L << 16)) + TEMP_OFFSET;
+	// Calculate the voltage on the pin
+	double voltage = ((double) ADRES) * 5.0/ ((double) (1L << 16));
+	// Since we're dealing with an RTD, there needs to be some mathematical magic
+	// to make it linear.  I think... http://ww1.microchip.com/downloads/en/AppNotes/00687b.pdf
+	// https://en.wikipedia.org/wiki/Resistance_thermometer
+	double resistance = (voltage*TEMP_R_CURRENT)/(5 - voltage);
+	// Quadratic formula
+	double temp = sqrt(TEMP_A*TEMP_A-4*TEMP_B*(1-resistance/TEMP_ZERO));
+	temp = (-TEMP_A + temp)/(2*TEMP_B);
 	// Need to do something like temp = temp * K + offset;
 	return temp;
 }
