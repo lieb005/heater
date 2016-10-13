@@ -3,31 +3,41 @@
 [d edition pro ]
 [d chip 18F2550 ]
 [d frameptr 4065 ]
-"44 /home/talia/workspace/Heater/Heater.X/main.c
-[e E3742 . `uc
-OFF 0
-ERR 1
-IDLE 2
-TIMER_SET 3
-TIME_SET 4
+"54 /home/talia/workspace/Heater/Heater.X/main.c
+[e E3802 . `uc
+_OFF 0
+_ERR 1
+_IDLE 2
+_TIMER_SET 3
+_TIME_SET 4
 ]
-"45
-[e E3749 . `uc
-FAN 0
-HEAT1 1
-HEAT2 2
+"56
+[e E3809 . `uc
+_NONE 0
+_FAN 1
+_HEAT1 2
+_HEAT_BOTH 3
 ]
-"325
-[e E3760 . `uc
-KEYS 0
-LEDS 1
-DISP1 2
-DISP2 3
+"60
+[e E3815 . `uc
+_COOL 0
+_HEAT 1
+_BOTH 2
+]
+"467
+[e E3826 . `uc
+_KEYS 0
+_LEDS 1
+_DISP1 2
+_DISP2 3
 ]
 "8 /opt/microchip/xc8/v1.38/sources/common/aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
+[v i1___aldiv __aldiv `(l  1 e 4 0 ]
 "8 /opt/microchip/xc8/v1.38/sources/common/almod.c
 [v ___almod __almod `(l  1 e 4 0 ]
+"32 /opt/microchip/xc8/v1.38/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
 "62 /opt/microchip/xc8/v1.38/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /opt/microchip/xc8/v1.38/sources/common/ftadd.c
@@ -38,6 +48,8 @@ DISP2 3
 [v ___ftge __ftge `(b  1 e 0 0 ]
 "62 /opt/microchip/xc8/v1.38/sources/common/ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.38/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
 "20 /opt/microchip/xc8/v1.38/sources/common/ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 "28 /opt/microchip/xc8/v1.38/sources/common/lwtoft.c
@@ -50,38 +62,44 @@ DISP2 3
 [v ___fldiv __fldiv `(d  1 e 3 0 ]
 "8 /opt/microchip/xc8/v1.38/sources/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
+"9 /opt/microchip/xc8/v1.38/sources/common/sprcsqrt.c
+[v _sqrt sqrt `(d  1 e 3 0 ]
 "15 /opt/microchip/xc8/v1.38/sources/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"51 /home/talia/workspace/Heater/Heater.X/main.c
-[v _main main `(v  1 e 1 0 ]
-"86
-[v _setup setup `(v  1 e 1 0 ]
-"123
-[v _setup_therm setup_therm `(v  1 e 1 0 ]
-"148
-[v _setup_timer0 setup_timer0 `(v  1 e 1 0 ]
-"170
-[v _setup_timer1 setup_timer1 `(v  1 e 1 0 ]
-"193
-[v _setup_timer2 setup_timer2 `(v  1 e 1 0 ]
-"218
-[v _error error `(v  1 e 1 0 ]
-"227
-[v _get_temp get_temp `(f  1 e 3 0 ]
-"238
-[v _sample_inputs sample_inputs `(uc  1 e 1 0 ]
-"249
-[v _set_LEDs set_LEDs `(v  1 e 1 0 ]
-"258
+"7 /home/talia/workspace/Heater/Heater.X/disp.c
 [v _num_to_disp num_to_disp `(uc  1 e 1 0 ]
-"278
+"29
 [v _set_digit set_digit `(v  1 e 1 0 ]
 [v i1_set_digit set_digit `(v  1 e 1 0 ]
-"297
+"73 /home/talia/workspace/Heater/Heater.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"197
+[v _setup setup `(v  1 e 1 0 ]
+"228
+[v _setup_io setup_io `(v  1 e 1 0 ]
+"247
+[v _setup_therm setup_therm `(v  1 e 1 0 ]
+"273
+[v _setup_timer0 setup_timer0 `(v  1 e 1 0 ]
+"295
+[v _setup_timer1 setup_timer1 `(v  1 e 1 0 ]
+"320
+[v _setup_timer2 setup_timer2 `(v  1 e 1 0 ]
+"345
+[v _error error `(v  1 e 1 0 ]
+"354
+[v _get_temp get_temp `(f  1 e 3 0 ]
+"373
+[v _sample_inputs sample_inputs `(uc  1 e 1 0 ]
+"386
+[v _set_LEDs set_LEDs `(v  1 e 1 0 ]
+"395
 [v _buzzer buzzer `(v  1 e 1 0 ]
-"304
+"403
+[v _set_key_led_disp_tris set_key_led_disp_tris `(v  1 e 1 0 ]
+"418
 [v _ISR_high ISR_high `IIH(v  1 e 1 0 ]
-"317
+"442
 [v _ISR_low ISR_low `IIL(v  1 e 1 0 ]
 "2516 /opt/microchip/xc8/v1.38/include/pic18f2550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
@@ -143,30 +161,32 @@ DISP2 3
 [v _IRCF1 IRCF1 `VEb  1 e 0 @32413 ]
 "8648
 [v _IRCF2 IRCF2 `VEb  1 e 0 @32414 ]
+"8672
+[v _LATA2 LATA2 `VEb  1 e 0 @31818 ]
 "8674
 [v _LATA3 LATA3 `VEb  1 e 0 @31819 ]
 "8676
 [v _LATA4 LATA4 `VEb  1 e 0 @31820 ]
 "8678
 [v _LATA5 LATA5 `VEb  1 e 0 @31821 ]
+"8680
+[v _LATA6 LATA6 `VEb  1 e 0 @31822 ]
 "8682
 [v _LATB0 LATB0 `VEb  1 e 0 @31824 ]
 "8684
 [v _LATB1 LATB1 `VEb  1 e 0 @31825 ]
 "8686
 [v _LATB2 LATB2 `VEb  1 e 0 @31826 ]
-"8688
-[v _LATB3 LATB3 `VEb  1 e 0 @31827 ]
 "8690
 [v _LATB4 LATB4 `VEb  1 e 0 @31828 ]
 "8692
 [v _LATB5 LATB5 `VEb  1 e 0 @31829 ]
-"8694
-[v _LATB6 LATB6 `VEb  1 e 0 @31830 ]
 "8698
 [v _LATC0 LATC0 `VEb  1 e 0 @31832 ]
 "8700
 [v _LATC1 LATC1 `VEb  1 e 0 @31833 ]
+"8702
+[v _LATC2 LATC2 `VEb  1 e 0 @31834 ]
 "8814
 [v _PCFG0 PCFG0 `VEb  1 e 0 @32264 ]
 "8816
@@ -251,69 +271,166 @@ DISP2 3
 [v _TRISA4 TRISA4 `VEb  1 e 0 @31892 ]
 "9172
 [v _TRISA5 TRISA5 `VEb  1 e 0 @31893 ]
+"9174
+[v _TRISA6 TRISA6 `VEb  1 e 0 @31894 ]
+"9176
+[v _TRISB0 TRISB0 `VEb  1 e 0 @31896 ]
+"9178
+[v _TRISB1 TRISB1 `VEb  1 e 0 @31897 ]
+"9180
+[v _TRISB2 TRISB2 `VEb  1 e 0 @31898 ]
+"9182
+[v _TRISB3 TRISB3 `VEb  1 e 0 @31899 ]
+"9184
+[v _TRISB4 TRISB4 `VEb  1 e 0 @31900 ]
+"9186
+[v _TRISB5 TRISB5 `VEb  1 e 0 @31901 ]
+"9192
+[v _TRISC0 TRISC0 `VEb  1 e 0 @31904 ]
+"9194
+[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
+"9196
+[v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
 "9334
 [v _nRBPU nRBPU `VEb  1 e 0 @32655 ]
-"37 /home/talia/workspace/Heater/Heater.X/main.c
+"3 /opt/microchip/xc8/v1.38/sources/common/errno.c
+[v _errno errno `i  1 e 2 0 ]
+"58 /home/talia/workspace/Heater/Heater.X/disp.h
+[v _font font `C[10]uc  1 e 10 0 ]
+"41 /home/talia/workspace/Heater/Heater.X/main.c
 [v _temp_want temp_want `uc  1 e 1 0 ]
-"39
+"43
 [v _time time `l  1 e 4 0 ]
-"40
-[v _high_hour high_hour `uc  1 e 1 0 ]
-[v _low_hour low_hour `uc  1 e 1 0 ]
-"42
+"46
+[v _day_hour day_hour `uc  1 e 1 0 ]
+[v _night_hour night_hour `uc  1 e 1 0 ]
+"48
+[v _day_temp day_temp `uc  1 e 1 0 ]
+[v _night_temp night_temp `uc  1 e 1 0 ]
+"50
 [v _timer timer `b  1 e 0 0 ]
 [v _unit unit `b  1 e 0 0 ]
-"43
+"52
 [v _cur_number cur_number `*.39uc  1 e 2 0 ]
-"44
-[v _state state `E3742  1 e 1 0 ]
-"45
-[v _heat_mode heat_mode `E3749  1 e 1 0 ]
-"46
+"54
+[v _state state `E3802  1 e 1 0 ]
+"56
+[v _heat_mode heat_mode `E3809  1 e 1 0 ]
+"58
+[v _heat_cur heat_cur `E3809  1 e 1 0 ]
+"60
+[v _climate_control climate_control `E3815  1 e 1 0 ]
+"62
 [v _temp_cur temp_cur `f  1 e 3 0 ]
-"47
+"64
 [v _disp disp `[2]uc  1 e 2 0 ]
-"49
+"66
+[v _buzz buzz `uc  1 e 1 0 ]
+[v _blink blink `uc  1 e 1 0 ]
+"68
 [v _timer_led timer_led `b  1 e 0 0 ]
 [v _power_led power_led `b  1 e 0 0 ]
-"162 /home/talia/workspace/Heater/Heater.X/main.h
-[v _font font `C[10]uc  1 e 10 0 ]
-"51 /home/talia/workspace/Heater/Heater.X/main.c
+"71
+[v _fan_timeout fan_timeout `uc  1 e 1 0 ]
+"73
 [v _main main `(v  1 e 1 0 ]
-{
-"79
-} 0
-"86
-[v _setup setup `(v  1 e 1 0 ]
-{
-"121
-} 0
-"193
-[v _setup_timer2 setup_timer2 `(v  1 e 1 0 ]
-{
-"216
-} 0
-"170
-[v _setup_timer1 setup_timer1 `(v  1 e 1 0 ]
 {
 "189
 } 0
-"148
+"197
+[v _setup setup `(v  1 e 1 0 ]
+{
+"226
+} 0
+"320
+[v _setup_timer2 setup_timer2 `(v  1 e 1 0 ]
+{
+"343
+} 0
+"295
+[v _setup_timer1 setup_timer1 `(v  1 e 1 0 ]
+{
+"316
+} 0
+"273
 [v _setup_timer0 setup_timer0 `(v  1 e 1 0 ]
 {
-"167
+"292
 } 0
-"123
+"247
 [v _setup_therm setup_therm `(v  1 e 1 0 ]
 {
-"145
+"269
 } 0
-"227
+"228
+[v _setup_io setup_io `(v  1 e 1 0 ]
+{
+"245
+} 0
+"354
 [v _get_temp get_temp `(f  1 e 3 0 ]
 {
-"233
-[v get_temp@temp temp `f  1 a 3 41 ]
-"236
+"367
+[v get_temp@temp temp `d  1 a 3 99 ]
+"361
+[v get_temp@voltage voltage `d  1 a 3 96 ]
+"365
+[v get_temp@resistance resistance `d  1 a 3 87 ]
+"371
+} 0
+"9 /opt/microchip/xc8/v1.38/sources/common/sprcsqrt.c
+[v _sqrt sqrt `(d  1 e 3 0 ]
+{
+"134
+[v sqrt@x x `d  1 a 3 81 ]
+[v sqrt@q q `d  1 a 3 78 ]
+[v sqrt@z z `d  1 a 3 74 ]
+[v sqrt@og og `d  1 a 3 71 ]
+"135
+[v sqrt@i i `uc  1 a 1 77 ]
+"9
+[v sqrt@a a `d  1 p 3 65 ]
+"159
+} 0
+"20 /opt/microchip/xc8/v1.38/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+{
+[v ___ftsub@f1 f1 `f  1 p 3 35 ]
+[v ___ftsub@f2 f2 `f  1 p 3 38 ]
+"27
+} 0
+"86 /opt/microchip/xc8/v1.38/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+{
+"88
+[v ___ftadd@exp1 exp1 `uc  1 a 1 34 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 33 ]
+[v ___ftadd@sign sign `uc  1 a 1 32 ]
+"86
+[v ___ftadd@f1 f1 `f  1 p 3 23 ]
+[v ___ftadd@f2 f2 `f  1 p 3 26 ]
+"148
+} 0
+"62 /opt/microchip/xc8/v1.38/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 45 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 49 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 48 ]
+[v ___ftmul@exp exp `uc  1 a 1 44 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 35 ]
+[v ___ftmul@f2 f2 `f  1 p 3 38 ]
+"157
+} 0
+"4 /opt/microchip/xc8/v1.38/sources/common/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+{
+[v ___ftge@ff1 ff1 `f  1 p 3 24 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 27 ]
+"13
 } 0
 "28 /opt/microchip/xc8/v1.38/sources/common/lwtoft.c
 [v ___lwtoft __lwtoft `(f  1 e 3 0 ]
@@ -321,19 +438,64 @@ DISP2 3
 [v ___lwtoft@c c `ui  1 p 2 20 ]
 "31
 } 0
+"15 /opt/microchip/xc8/v1.38/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+{
+[v ___ftneg@f1 f1 `f  1 p 3 20 ]
+"20
+} 0
 "54 /opt/microchip/xc8/v1.38/sources/common/ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
 {
 "60
-[v ___ftdiv@f3 f3 `f  1 a 3 33 ]
+[v ___ftdiv@f3 f3 `f  1 a 3 60 ]
 "59
-[v ___ftdiv@sign sign `uc  1 a 1 37 ]
-[v ___ftdiv@exp exp `uc  1 a 1 36 ]
-[v ___ftdiv@cntr cntr `uc  1 a 1 32 ]
+[v ___ftdiv@sign sign `uc  1 a 1 64 ]
+[v ___ftdiv@exp exp `uc  1 a 1 63 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 59 ]
 "54
-[v ___ftdiv@f1 f1 `f  1 p 3 23 ]
-[v ___ftdiv@f2 f2 `f  1 p 3 26 ]
+[v ___ftdiv@f1 f1 `f  1 p 3 50 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 53 ]
 "86
+} 0
+"345 /home/talia/workspace/Heater/Heater.X/main.c
+[v _error error `(v  1 e 1 0 ]
+{
+[v error@code code `uc  1 a 1 wreg ]
+[v error@code code `uc  1 a 1 wreg ]
+"348
+[v error@code code `uc  1 a 1 14 ]
+"352
+} 0
+"29 /home/talia/workspace/Heater/Heater.X/disp.c
+[v _set_digit set_digit `(v  1 e 1 0 ]
+{
+[v set_digit@dig dig `uc  1 a 1 wreg ]
+[v set_digit@dig dig `uc  1 a 1 wreg ]
+[v set_digit@num num `uc  1 p 1 12 ]
+"32
+[v set_digit@dig dig `uc  1 a 1 13 ]
+"50
+} 0
+"7
+[v _num_to_disp num_to_disp `(uc  1 e 1 0 ]
+{
+[v num_to_disp@num num `uc  1 a 1 wreg ]
+"9
+[v num_to_disp@ret ret `uc  1 a 1 12 ]
+"7
+[v num_to_disp@num num `uc  1 a 1 wreg ]
+[v num_to_disp@num num `uc  1 a 1 13 ]
+"24
+} 0
+"32 /opt/microchip/xc8/v1.38/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+{
+"34
+[v ___awtoft@sign sign `uc  1 a 1 23 ]
+"32
+[v ___awtoft@c c `i  1 p 2 20 ]
+"42
 } 0
 "62 /opt/microchip/xc8/v1.38/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
@@ -343,102 +505,88 @@ DISP2 3
 [v ___ftpack@sign sign `uc  1 p 1 16 ]
 "86
 } 0
-"218 /home/talia/workspace/Heater/Heater.X/main.c
-[v _error error `(v  1 e 1 0 ]
+"8 /opt/microchip/xc8/v1.38/sources/common/aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
-[v error@code code `uc  1 a 1 wreg ]
-[v error@code code `uc  1 a 1 wreg ]
-"221
-[v error@code code `uc  1 a 1 14 ]
-"225
+"11
+[v ___aldiv@quotient quotient `l  1 a 4 22 ]
+"12
+[v ___aldiv@sign sign `uc  1 a 1 21 ]
+[v ___aldiv@counter counter `uc  1 a 1 20 ]
+"8
+[v ___aldiv@dividend dividend `l  1 p 4 12 ]
+[v ___aldiv@divisor divisor `l  1 p 4 16 ]
+"42
 } 0
-"278
-[v _set_digit set_digit `(v  1 e 1 0 ]
-{
-[v set_digit@dig dig `uc  1 a 1 wreg ]
-[v set_digit@dig dig `uc  1 a 1 wreg ]
-[v set_digit@num num `uc  1 p 1 12 ]
-"281
-[v set_digit@dig dig `uc  1 a 1 13 ]
-"295
-} 0
-"258
-[v _num_to_disp num_to_disp `(uc  1 e 1 0 ]
-{
-[v num_to_disp@num num `uc  1 a 1 wreg ]
-"260
-[v num_to_disp@ret ret `uc  1 a 1 12 ]
-"258
-[v num_to_disp@num num `uc  1 a 1 wreg ]
-[v num_to_disp@num num `uc  1 a 1 13 ]
-"275
-} 0
-"4 /opt/microchip/xc8/v1.38/sources/common/ftge.c
-[v ___ftge __ftge `(b  1 e 0 0 ]
-{
-[v ___ftge@ff1 ff1 `f  1 p 3 12 ]
-[v ___ftge@ff2 ff2 `f  1 p 3 15 ]
-"13
-} 0
-"317 /home/talia/workspace/Heater/Heater.X/main.c
+"442 /home/talia/workspace/Heater/Heater.X/main.c
 [v _ISR_low ISR_low `IIL(v  1 e 1 0 ]
 {
-"326
+"468
 [v ISR_low@ins ins `uc  1 a 1 11 ]
-"328
+"470
 [v ISR_low@mask_leds mask_leds `uc  1 a 1 5 ]
-"325
-[v ISR_low@cur cur `E3760  1 a 1 4 ]
-"327
+"467
+[v ISR_low@cur cur `E3826  1 a 1 4 ]
+"469
 [v ISR_low@ins_prev ins_prev `uc  1 s 1 ins_prev ]
-"391
+"546
 } 0
-"278
+"29 /home/talia/workspace/Heater/Heater.X/disp.c
 [v i1_set_digit set_digit `(v  1 e 1 0 ]
 {
 [v i1set_digit@dig dig `uc  1 a 1 wreg ]
 [v i1set_digit@dig dig `uc  1 a 1 wreg ]
 [v i1set_digit@num num `uc  1 p 1 24 ]
-"281
+"32
 [v i1set_digit@dig dig `uc  1 a 1 25 ]
-"295
+"50
 } 0
-"249
+"8 /opt/microchip/xc8/v1.38/sources/common/aldiv.c
+[v i1___aldiv __aldiv `(l  1 e 4 0 ]
+{
+[v i1___aldiv@quotient __aldiv `l  1 a 4 34 ]
+[v i1___aldiv@sign __aldiv `uc  1 a 1 33 ]
+[v i1___aldiv@counter __aldiv `uc  1 a 1 32 ]
+[v i1___aldiv@dividend dividend `l  1 p 4 24 ]
+[v i1___aldiv@divisor divisor `l  1 p 4 28 ]
+"42
+} 0
+"386 /home/talia/workspace/Heater/Heater.X/main.c
 [v _set_LEDs set_LEDs `(v  1 e 1 0 ]
 {
 [v set_LEDs@mask mask `uc  1 a 1 wreg ]
 [v set_LEDs@mask mask `uc  1 a 1 wreg ]
-"251
+"388
 [v set_LEDs@mask mask `uc  1 a 1 24 ]
-"256
+"393
 } 0
-"238
+"373
 [v _sample_inputs sample_inputs `(uc  1 e 1 0 ]
 {
-"247
+"384
 } 0
-"297
+"403
+[v _set_key_led_disp_tris set_key_led_disp_tris `(v  1 e 1 0 ]
+{
+[v set_key_led_disp_tris@dir dir `uc  1 a 1 wreg ]
+[v set_key_led_disp_tris@dir dir `uc  1 a 1 wreg ]
+"407
+[v set_key_led_disp_tris@dir dir `uc  1 a 1 24 ]
+"414
+} 0
+"395
 [v _buzzer buzzer `(v  1 e 1 0 ]
 {
-"302
+[v buzzer@duration duration `uc  1 a 1 wreg ]
+[v buzzer@duration duration `uc  1 a 1 wreg ]
+"398
+[v buzzer@duration duration `uc  1 a 1 24 ]
+"401
 } 0
-"8 /opt/microchip/xc8/v1.38/sources/common/aldiv.c
-[v ___aldiv __aldiv `(l  1 e 4 0 ]
-{
-"11
-[v ___aldiv@quotient quotient `l  1 a 4 34 ]
-"12
-[v ___aldiv@sign sign `uc  1 a 1 33 ]
-[v ___aldiv@counter counter `uc  1 a 1 32 ]
-"8
-[v ___aldiv@dividend dividend `l  1 p 4 24 ]
-[v ___aldiv@divisor divisor `l  1 p 4 28 ]
-"42
-} 0
-"304 /home/talia/workspace/Heater/Heater.X/main.c
+"418
 [v _ISR_high ISR_high `IIH(v  1 e 1 0 ]
 {
-"315
+"438
 } 0
 "8 /opt/microchip/xc8/v1.38/sources/common/almod.c
 [v ___almod __almod `(l  1 e 4 0 ]
