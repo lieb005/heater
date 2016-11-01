@@ -1,7 +1,5 @@
-#include <xc.h>
-
 #include "disp.h"
-#include <stdlib.h>
+#include <xc.h>
 
 // Convert a number (or other char) to disp masks
 unsigned char num_to_disp(char num)
@@ -14,7 +12,7 @@ unsigned char num_to_disp(char num)
 		break;
 	case 'E':
 	case 'e':
-		ret = (A | 0 | 0 | D | E | F | G);
+		ret = (SEG_A | 0 | 0 | SEG_D | SEG_E | SEG_F | SEG_G);
 		break;
 	default:
 		ret = (0);
@@ -26,9 +24,12 @@ unsigned char num_to_disp(char num)
 // Display a single digit of the display
 // Don't forget to turn off LEDs before calling
 // Digits are 0 or 1
-void set_digit(unsigned char dig, char num)
+void set_digit(unsigned char dig)
 {
 	// Output now
+	/*
+	 * Don't do this becaues we have a function that does it for us.  Also,
+	 * don't change io's out of the main file so we don't forget about them
 	DISP_A_TRIS = 0;
 	DISP_B_TRIS = 0;
 	DISP_C_TRIS = 0;
@@ -36,15 +37,22 @@ void set_digit(unsigned char dig, char num)
 	DISP_E_TRIS = 0;
 	DISP_F_TRIS = 0;
 	DISP_G_TRIS = 0;
+	*/
 	// Select which digit we show.  They're active low
+	/*
+	 * Same reason
 	DISP_1 = num;
 	DISP_2 = !num;
+	*/
 	// Need to do this long hand because DISP_A thru DISP_G aren't necessarily linear
-	DISP_A = 0 != (dig & DISP_A_MASK);
-	DISP_B = 0 != (dig & DISP_B_MASK);
-	DISP_C = 0 != (dig & DISP_C_MASK);
-	DISP_D = 0 != (dig & DISP_D_MASK);
-	DISP_E = 0 != (dig & DISP_E_MASK);
-	DISP_F = 0 != (dig & DISP_F_MASK);
-	DISP_G = 0 != (dig & DISP_G_MASK);
+	if (dig & BIT7) // Blank bit
+		dig = 0;
+	// Division trick again because these masks are powers of two!
+	DISP_A = (dig / DISP_A_MASK);
+	DISP_B = (dig / DISP_B_MASK);
+	DISP_C = (dig / DISP_C_MASK);
+	DISP_D = (dig / DISP_D_MASK);
+	DISP_E = (dig / DISP_E_MASK);
+	DISP_F = (dig / DISP_F_MASK);
+	DISP_G = (dig / DISP_G_MASK);
 }

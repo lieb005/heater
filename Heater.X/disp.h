@@ -3,10 +3,10 @@
 
 // Function Prototypes
 unsigned char num_to_disp(char num);
-void set_digit(unsigned char dig, char num);
+void set_digit(unsigned char dig);
 
-#ifndef BITS
-#define BITS
+#ifndef _BITS_
+#define _BITS_
 
 #define BIT0 0b1
 #define BIT1 0b10
@@ -47,26 +47,26 @@ void set_digit(unsigned char dig, char num);
 #define DISP_2_TRIS TRISA4
 
 // Font stuffs
-#define A BIT0
-#define B BIT1
-#define C BIT2
-#define D BIT3
-#define E BIT4
-#define F BIT5
-#define G BIT6
+#define SEG_A BIT0
+#define SEG_B BIT1
+#define SEG_C BIT2
+#define SEG_D BIT3
+#define SEG_E BIT4
+#define SEG_F BIT5
+#define SEG_G BIT6
 
 const unsigned char font[] =
 {
-	A | B | C | D | E | F | 0, //0
-	0 | B | C | 0 | 0 | 0 | 0, //1
-	A | B | 0 | D | E | 0 | G, //2
-	A | B | C | D | 0 | 0 | G, //3
-	0 | B | C | 0 | 0 | F | G, //4
-	A | 0 | C | D | 0 | F | G, //5
-	A | 0 | C | D | E | F | G, //6 (hooked top)
-	A | B | C | 0 | 0 | 0 | 0, //7
-	A | B | C | D | E | F | G, //8
-	A | B | C | 0 | 0 | F | G, //9 (straight bottom)
+	SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F |   0  , //0  
+	  0   | SEG_B | SEG_C |   0   |   0   |   0   |   0  , //1
+	SEG_A | SEG_B |   0   | SEG_D | SEG_E |   0   | SEG_G, //2
+	SEG_A | SEG_B | SEG_C | SEG_D |   0   |   0   | SEG_G, //3
+	  0   | SEG_B | SEG_C |   0   |   0   | SEG_F | SEG_G, //4
+	SEG_A |   0   | SEG_C | SEG_D |   0   | SEG_F | SEG_G, //5
+	SEG_A |   0   | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G, //6 (hooked top)
+	SEG_A | SEG_B | SEG_C |   0   |   0   |   0   |   0  , //7
+	SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G, //8
+	SEG_A | SEG_B | SEG_C |   0   |   0   | SEG_F | SEG_G, //9 (straight bottom)
 };
 
 #endif

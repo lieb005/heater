@@ -51,7 +51,7 @@
 // 15 -- NC
 // 16 -- NC
 // 17 -- TX?
-// 18 -- TX?
+// 18 -- RX?
 // 19 -- Vss
 // 20 -- Vdd
 // 21 -- KEY1, LED_F, DISP_D
@@ -63,27 +63,44 @@
 // 27 -- Program Clock
 // 28 -- Program Data
 
-// Conn out from ctrl board:
+//       +-----+
+// MCLRE-|1  28|-PGD
+// Therm-|2  27|-PGC
+// IR_in-|3  26|-KEY6
+//LEDCth-|4  25|-KEY5
+// DISP1-|5  24|-KEY4
+// DISP2-|6  23|-KEY3
+//  BUZZ-|7  22|-KEY2
+//   Vss-|8  21|-KEY1
+//      -|9  20|-Vdd
+//  LED1-|10 19|-Vss
+//   FAN-|11 18|-
+// HEAT1-|12 17|-
+// HEAT2-|13 16|-
+//   Vdd-|14 15|-
+//       +-----+
+// Conn out from front board:
 //
-//   +---+
-// --| . <  <-- therm
-// --| . |  <-- Gnd
-// --| . |  <-- +5V
-// --| . |  <-- HEAT 2
-// --| . |  <-- HEAT 1
-// --| . <  <-- FAN
-//   +---+
+//     +---+
+// B --| . <  <-- therm
+// o --| . |  <-- Gnd
+// a --| . |  <-- +5V
+// r --| . |  <-- HEAT 2
+// d --| . |  <-- HEAT 1
+//   --| . <  <-- FAN
+//     +---+
 
 // Heat 1, 2, and fan are all 5V active.
 
 typedef enum {_OFF = 0, _ERR, _IDLE, _TIMER_SET, _TIME_SET} global_state;
 typedef enum {_NONE, _FAN, _HEAT1, _HEAT_BOTH} heat_state;
-typedef enum {_COOL, _HEAT, _BOTH} heat_or_cool;
+typedef enum {_COOL = 0b1, _HEAT = 0b10} heat_or_cool;
 typedef enum {_HIGH_HOUR, _HIGH_TEMP, _LOW_HOUR, _LOW_TEMP} timer_set_state;
-typedef enum {_KEYS, _LEDS, _DISP1, _DISP2} scan_state;
+// Ensure all are numbers because we need to iterate through
+typedef enum {_KEYS = 0, _LEDS = 1, _DISP1 = 2, _DISP2 = 3} scan_state;
 
-#ifndef BITS
-#define BITS
+#ifndef _BITS_
+#define _BITS_
 #define BIT0 0b1
 #define BIT1 0b10
 #define BIT2 0b100
@@ -97,22 +114,22 @@ typedef enum {_KEYS, _LEDS, _DISP1, _DISP2} scan_state;
 // Define keys first (Give us the cause of the order)
 // First six bits of PORTB used because pullups and
 // The last two bits are for programming only
-#define KEY1 RB0
+#define KEY1 PORTBbits.RB0
 #define KEY1_TRIS TRISB0
 #define KEY1_MASK BIT0
-#define KEY2 RB1
+#define KEY2 PORTBbits.RB1
 #define KEY2_TRIS TRISB1
 #define KEY2_MASK BIT1
-#define KEY3 RB2
+#define KEY3 PORTBbits.RB2
 #define KEY3_TRIS TRISB2
 #define KEY3_MASK BIT2
-#define KEY4 RB3
+#define KEY4 PORTBbits.RB3
 #define KEY4_TRIS TRISB3
 #define KEY4_MASK BIT3
-#define KEY5 RB4
+#define KEY5 PORTBbits.RB4
 #define KEY5_TRIS TRISB4
 #define KEY5_MASK BIT4
-#define KEY6 RB5
+#define KEY6 PORTBbits.RB5
 #define KEY6_TRIS TRISB5
 #define KEY6_MASK BIT5
 
@@ -149,17 +166,30 @@ typedef enum {_KEYS, _LEDS, _DISP1, _DISP2} scan_state;
 #define THERM_TRIS TRISA0
 // Constants for converting the voltage to temperature, 
 // Guessing this because it's most common
-#define TEMP_R_CURRENT (1.00e3)
-#define TEMP_ZERO 100
-// Constants for equation for temp
+#define TEMP_R_DIV (1.00e3)
+#define TEMP_R_ZERO (100)
+
+//#define RTD
+#define THERMISTER
+
+#ifdef RTD
+// Constants for equation for temp for platinum
 #define TEMP_A (3.9083e-3)
 #define TEMP_B (-5.775e-7)
 // Not used when measuring positive voltages
 #define TEMP_C (-4.183e-12)
+#endif
+
+#ifdef THERMISTER
+// Take three measurements of temp vs resistance and then use those to solve for A, B, and C
+#define TEMP_A (1)
+#define TEMP_B (1)
+#define TEMP_C (1)
+#endif
 
 // We need to do RC5 protocol magic on this.
 // Can we use the serial module?  Probably not
-#define IR_IN RA1
+#define IR_IN PORTAbits.RA1
 #define IR_IN_TRIS TRISA1
 
 #define BUZZER LATA5
@@ -167,6 +197,9 @@ typedef enum {_KEYS, _LEDS, _DISP1, _DISP2} scan_state;
 // Not sure if inverted logic...
 #define BUZZ_ON 1
 #define BUZZ_OFF 0
+// These will be the different buzz lengths
+#define BUZZ_SHORT 3
+#define BUZZ_LONG 5
 
 // Our three outputs that we need to care most about...
 #define FAN LATC0
@@ -180,6 +213,17 @@ typedef enum {_KEYS, _LEDS, _DISP1, _DISP2} scan_state;
 #define FAN_FEED_HEAT 30
 // Run for one second if we are in fan mode
 #define FAN_FEED_NO_HEAT 1
+
+// Use an enum to prevent address collisions
+typedef enum {
+	EE_TIME_ADDR = 0, 
+	EE_WANT_TEMP_ADDR, 
+	EE_DAY_TIME_ADDR, 
+	EE_DAY_TEMP_ADDR,
+	EE_NIGHT_TIME_ADDR,
+	EE_NIGHT_TEMP_ADDR,
+	EE_STATE_ADDR,
+} eeprom_addrs;
 
 #endif	/* MAIN_H */
 
