@@ -5,7 +5,7 @@
  * Created on October 9, 2016, 3:47 PM
  */
 
-// TODO: Reassign blink timer to IR.  Use the scan timer for blinking?
+// TODO: Reassign blink timer to IR.  Use the scan timer for blinking.  Fix "blink."
 //		It should always be the same amount of time to scan all four in a row,
 //		So can we do like a div by four sort of deal?
 //		Also could just put blinking in main loop...
@@ -76,7 +76,8 @@ heat_or_cool climate_control = _HEAT;
 float temp_cur;
 // Variable of what's on the display.  BIT7 is the on/off bit
 unsigned char disp[2];
-// Both countdown variables to control blink/buzz diration
+// Both countdown variables to control blink/buzz duration
+// They are changed every 15Hz, so maybe divide that by 12?  Make each 1.25 Hz?
 unsigned char buzz = 0, blink = 0;
 
 bit timer_led = 0, power_led = 0;
@@ -342,6 +343,8 @@ void setup_timer1()
 
 void setup_timer2()
 {
+	// Run it at 61Hz
+
 	// This timer resets when PR2 == TMR2
 	TMR2ON = 0;
 	// Set prescale to 1:2 (125k/2 = 62.5k)
@@ -352,7 +355,7 @@ void setup_timer2()
 	// Number TMR2 counts up to and resets at
 	// 256 = 62.5k/244.  244 = 61Hz * 4
 	PR2 = 0xFF;
-	// 1:2 postscale because 
+	// 1:1 postscale
 	T2OUTPS0 = 0;
 	T2OUTPS1 = 0;
 	T2OUTPS2 = 0;
@@ -625,26 +628,13 @@ void interrupt high_priority ISR_high()
 }
 
 // Blinking and scanning are less important
+
 void interrupt low_priority ISR_low()
 {
-	// Blink/buzz timer
+	// IR Timer
 	if (TMR0IE && TMR0IF)
 	{
-		blink = ~blink;
-		// Decrement so we can use a duration
-		// Decrement before so we don't deal with a negative number
-		// Also do the "&&" so that we don't decrement forever and it only
-		// decrements every time it's not zero
-		if (buzz && --buzz)
-		{
-			// Turn buzzer on
-			BUZZER = BUZZ_ON;
-		}
-			// turn off if buzz = 0
-		else
-		{
-			BUZZER = BUZZ_OFF;
-		}
+		TMR0IF = 0;
 		// Don't process any more interrupts in this interrupt call
 		return;
 	}
@@ -663,7 +653,6 @@ void interrupt low_priority ISR_low()
 		DISP_2 = 1;
 		// Advance variable through 4 modes
 		cur = (cur + 1) % 4;
-
 		switch (cur)
 		{
 		case _KEYS:
@@ -745,6 +734,26 @@ void interrupt low_priority ISR_low()
 			DISP_2 = 0;
 			set_digit(disp[1]);
 			break;
+		}
+		// This interrupt is called every 61Hz, so 61Hz/4 = 15Hz.
+		// We can deal with that for blinking...
+		if (!cur)
+		{
+			blink = (blink-1) % 12;
+			// Decrement so we can use a duration
+			// Decrement before so we don't deal with a negative number
+			// Also do the "&&" so that we don't decrement forever and it only
+			// decrements every time it's not zero
+			if (buzz && --buzz)
+			{
+				// Turn buzzer on
+				BUZZER = BUZZ_ON;
+			}
+				// turn off if buzz = 0
+			else
+			{
+				BUZZER = BUZZ_OFF;
+			}
 		}
 		// Don't process any more interrupts in this interrupt call
 		return;
