@@ -309,8 +309,8 @@ void setup_timer0()
 	T0IP = 0;
 	// Prescaler assigned to this, not WDT
 	PSA = 0;
-	// 1:256 (125kHz / 256 =~ 488.3Hz)
-	T0PS0 = T0PS1 = T0PS2 = 1;
+	// 1:1 (125kHz)
+	T0PS0 = T0PS1 = T0PS2 = 0;
 
 }
 //RTC timer

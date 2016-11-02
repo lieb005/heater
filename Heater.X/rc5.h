@@ -34,6 +34,9 @@
 		the 128 possible RC-5 commands.
  */
 
+#define IR_DEV_MASK (0x07C0L) // 5 bits offset by 6
+#define IR_FN_MASK  (0x003FL) // 6 bits
+
 // Each bit is either a high/low transition or a low/high transition
 // On our receiver (we hope) no data = high
 //
@@ -49,4 +52,3 @@ typedef enum {} command_e;
 typedef enum {} device_e;
 
 #endif	/* RC5_H */
-
