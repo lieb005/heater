@@ -5,20 +5,20 @@
  * Created on October 9, 2016, 3:47 PM
  */
 
-// TODO: Reassign blink timer to IR.  Use the scan timer for blinking.  Fix "blink."
-//		It should always be the same amount of time to scan all four in a row,
-//		So can we do like a div by four sort of deal?
-//		Also could just put blinking in main loop...
+// TODO: Use Capture module for IR. Need to change FOSC
+// so that it can have the right baud (36k? 2*36k?)
+// Also need to free either timer 1 or timer 3 for usage for the CCP.
+// Also need to move stuff off of CCP1 or CCP2 pin to allow us to connect to it.
 
 #include <math.h>
 #include "main.h"
-#include "rc5.h"
+//#include "rc5.h"
 #include "disp.h"
 
 #include <xc.h>
 
 
-#pragma config FOSC = INTOSCIO_EC 
+#pragma config FOSC = INTOSCIO_EC
 #pragma config MCLRE = 1 // Dedicate pin to MCLR
 #pragma config PBADEN = 0 // Analog ins disabled on statup
 #pragma config WDT = 0 // Let SWDTEN decide
@@ -29,7 +29,8 @@
 #pragma config LVP = 0 // High voltage programming
 
 // FOSC before div 4 but after divider
-#define _FOSC 500000UL
+// 8MHz so we can have most precision
+#define _XTAL_FREQ 8000000UL
 
 void setup();
 void set_LEDs(unsigned char mask);
@@ -85,6 +86,10 @@ bit timer_led = 0, power_led = 0;
 // Lets the fan blow out all the hot air if the heat turns off
 char fan_timeout = 0;
 
+// Used for blinking
+#define BLINK_DIV 12
+#define BLINK (blink > BLINK_DIV)
+
 void main(void)
 {
 	setup();
@@ -97,7 +102,7 @@ void main(void)
 		ee_save_state();
 		// What are we here for?
 		temp_cur = get_temp();
-		if (temp_cur > 40)
+		if (temp_cur > 45)
 		{
 			// We clear error with the watchdog
 			// Error will trap us in a loop and starve the watchdog
@@ -235,6 +240,8 @@ void setup()
 	setup_timer1();
 	// Scan Timer
 	setup_timer2();
+    // Set up CCP
+    setup_CCP();
 
 	// Set up EEPROM
 	setup_eeprom();
@@ -242,9 +249,9 @@ void setup()
 	// Enable interrupts globally
 	IPEN = 1;
 	GIEH = 1;
-	GIEL = 0;
+	GIEL = 1;
 
-	// Set up the watchdog
+	// Set up the watchdog last so it's not starved
 	setup_watchdog();
 }
 
@@ -295,6 +302,8 @@ void setup_therm()
 
 void setup_timer0()
 {
+	//Runs at 125kHz
+	
 	// Stop it
 	TMR0ON = 0;
 	// Reset to 0
@@ -304,12 +313,12 @@ void setup_timer0()
 	// Internal clock
 	T0CS = 1;
 	// Low priority interrupt
-	T0IE = 1;
 	T0IF = 0;
 	T0IP = 0;
+	T0IE = 1;
 	// Prescaler assigned to this, not WDT
 	PSA = 0;
-	// 1:1 (125kHz)
+	// 1:1 (2MHz)
 	T0PS0 = T0PS1 = T0PS2 = 0;
 
 }
@@ -317,6 +326,8 @@ void setup_timer0()
 
 void setup_timer1()
 {
+	//Runs at 1MHz
+	
 	// Stop it
 	TMR1ON = 0;
 	// 16-bit mode
@@ -325,15 +336,15 @@ void setup_timer1()
 	T1RUN = 0;
 	TMR1CS = 0;
 	// Disable low Interrupt
-	TMR1IE = 1;
 	TMR1IF = 0;
 	TMR1IP = 1;
+	TMR1IE = 1;
 	// Prescale 1:8 (freq = FOSC/4/8 = 15.625kHz)
 	// If we want to have seconds, do N counts N Hz
 	// Use math so we don't have to worry as much in the future
 	T1CKPS0 = T1CKPS1 = 1;
 	// Set initial value
-	unsigned short tmp = (_FOSC / 32U);
+	unsigned short tmp = (_XTAL_FREQ / 4UL / 8UL);
 	TMR1 = 0xFFFFU - tmp;
 	// Start!
 	TMR1ON = 1;
@@ -361,9 +372,9 @@ void setup_timer2()
 	T2OUTPS2 = 0;
 	T2OUTPS3 = 0;
 	// Enable Low Interrupt
-	TMR2IE = 1;
 	TMR2IF = 0;
 	TMR2IP = 0;
+	TMR2IE = 1;
 	// Start!
 	TMR2ON = 1;
 }
@@ -380,9 +391,9 @@ void setup_eeprom()
 	// Disable writes to prevent spurious writes
 	WREN = 0;
 	// Enable low interrupt
-	EEIE = 1;
 	EEIF = 0;
 	EEIP = 0;
+	EEIE = 1;
 }
 
 void setup_watchdog()
@@ -393,12 +404,26 @@ void setup_watchdog()
 	asm("clrwdt");
 }
 
+void setup_CCP()
+{
+    TMR3ON = 0;
+    TMR3IF = 0;
+    TMR3IP = 0;
+    // Config frequency & clock source
+    TMR3ON = 1;
+    
+    CCP1IP = 1;
+    CCP1IF = 0;
+    CCP1IE = 1;
+    // Config CCP edge and stuff
+}
+
 // Errors will go into a loop and then device will reset with watchdog
 
 void error(char code)
 {
-	// E -- ADEFG
-	disp[0] = num_to_disp('E') | BIT7;
+	// 'E' -> ADEFG
+	disp[0] = num_to_disp('E') | BIT7; // Don't blink
 	disp[1] = num_to_disp(code) | BIT7;
 	set_key_led_disp_tris(0);
 
@@ -413,17 +438,17 @@ void error(char code)
 		DISP_1 = 0;
 		DISP_2 = 1;
 		LED_CATHODE = 1;
-		set_digit(disp[0] ^ (blink * BIT7));
-		// Wait a bit
-		i = 1000;
+		set_digit(disp[0] ^ (BLINK * BIT7));
+		// Wait a bit (should be a little under a millisecond or two)
+		i = 100;
 		while (--i);
 
 		DISP_1 = 1;
 		DISP_2 = 0;
 		LED_CATHODE = 1;
-		set_digit(disp[1] ^ (blink * BIT7));
+		set_digit(disp[1] ^ (BLINK * BIT7));
 		// Wait a bit
-		i = 1000;
+		i = 100;
 		while (--i);
 
 		DISP_1 = 1;
@@ -434,8 +459,6 @@ void error(char code)
 		// Wait a bit
 		i = 1000;
 		while (--i);
-
-
 	}
 }
 
@@ -514,7 +537,7 @@ void set_key_led_disp_tris(unsigned char dir)
 {
 	// Use LEDs because there are one more than there are keys
 	// Could have used display segments, but I chose LEDs just cause
-	LED1_TRIS = dir; // This is RB1.  I can't be an input.  Will it die?
+	LED1_TRIS = dir; // This is RB1.  I can't be an input.  Will it die if we assign anything to it?
 	LED2_TRIS = dir;
 	LED3_TRIS = dir;
 	LED4_TRIS = dir;
@@ -577,11 +600,11 @@ void ee_read_state()
 	heat_mode = 0x0F & (mode >> 4);
 	heat_mode = (heat_mode != _NONE ? heat_mode : _HEAT_BOTH);
 }
+
 // Do we need this?
 // The datasheet says that we don't need it if we are storing
 // infrequently changing variables, but then it says
 // we need to do this if we don't use frequently changing data
-
 void ee_refresh()
 {
 	WREN = 1;
@@ -601,7 +624,6 @@ void ee_refresh()
 
 // Don't really know what the difference is between high and low
 // but the clock is most important
-
 void interrupt high_priority ISR_high()
 {
 	if (TMR1IE && TMR1IF)
@@ -612,7 +634,7 @@ void interrupt high_priority ISR_high()
 		// Also, gonna add it in case timer rolled over and started again and
 		// already stated counting.  This is actually a good thing and we want
 		// take advantage of it
-		unsigned short tmp = (_FOSC / 32UL);
+		unsigned short tmp = (_XTAL_FREQ / 32UL);
 		TMR1 += 0xFFFFU - tmp;
 		// Clear flag
 		TMR1IF = 0;
@@ -625,10 +647,32 @@ void interrupt high_priority ISR_high()
 		// Don't process any more interrupts in this interrupt call
 		return;
 	}
+    if (CCP1IE && CCP1IF)
+    {
+#if 0
+        switch (timer_val)
+        {
+            case short - offset ... short + offset - 1:
+                data = same as last;
+                // Reset timer
+                break;
+            case short + offset .. long - offset - 1:
+                // Same
+                // Not sure?;
+                break;
+            case long - offset ... long + offset - 1:
+                // Opposite of last bit
+                break;
+            default:
+                // What to do? Do we throw it out?  Discard the sample? Exit out?
+        }
+#endif
+		// Don't process any more interrupts in this call
+        return;
+    }
 }
 
 // Blinking and scanning are less important
-
 void interrupt low_priority ISR_low()
 {
 	// IR Timer
@@ -638,7 +682,6 @@ void interrupt low_priority ISR_low()
 		// Don't process any more interrupts in this interrupt call
 		return;
 	}
-
 	if (TMR2IE && TMR2IF)
 	{
 		static scan_state cur = _KEYS;
@@ -739,7 +782,10 @@ void interrupt low_priority ISR_low()
 		// We can deal with that for blinking...
 		if (!cur)
 		{
-			blink = (blink-1) % 12;
+			// Count up to 24, and then each time we ask for blink, we should divide
+			// it by 12.  If blink is less than 12, it will be zero, and more than
+			// twelve it will be one.  It will never be 24, so it will never be two
+			blink = (blink+1) % (BLINK_DIV*2);
 			// Decrement so we can use a duration
 			// Decrement before so we don't deal with a negative number
 			// Also do the "&&" so that we don't decrement forever and it only

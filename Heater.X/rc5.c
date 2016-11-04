@@ -1,13 +1,10 @@
 #include "rc5.h"
 
-void decode(unsigned short data, device_e* dev, command_e* command)
+/*void decode(unsigned short data, dev_e* dev, function_e* command)
 {
-    switch(data & IR_DEV_MASK)
+    *dev = (data & IR_DEV_MASK) >> 6;
+    switch(*dev)
     {
-    
+		
     }
-    switch(data & IR_FN_MASK)
-    {
-
-    }
-}
+}*/

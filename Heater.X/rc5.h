@@ -22,8 +22,8 @@
 	The command comprises 14 bits:
 	A start bit, which is always logic 1 and allows the receiving IC to set the proper gain.
 	A field bit, which denotes whether the command sent is in the lower field (logic 1 = 0 to 63 decimal)
- 		or the upper field (logic 0 = 64 to 127 decimal). The field bit was added
- 		later by Philips when it was realized that 64 commands per device were insufficient.
+		or the upper field (logic 0 = 64 to 127 decimal). The field bit was added
+		later by Philips when it was realized that 64 commands per device were insufficient.
 		Previously, the field bit was combined with the start bit. Many devices still use this original system.
 	A control bit, which toggles with each button press. This allows the receiving device 
 		to distinguish between two successive button presses (such as "1", "1" for "11") as
@@ -48,7 +48,39 @@
 //  hiiiii   lo hi lo hi hi lo hi lo lo hi hi lo hiiiiiii
 //			   0     0     1      1    0     1
 
-typedef enum {} command_e;
-typedef enum {} device_e;
+typedef enum {
+	TV1 = 0,
+	TV2 = 1,
+	TXT = 2,
+	TV_EXT = 3,
+	LV = 4,
+	VCR1 = 5,
+	VCR2 = 6,
+	// RESVD = 7,
+	SAT1 = 8,
+	VCR_EXT = 9,
+	SAT2 = 10,
+	// RESVD = 11,
+	CD_VID = 12,
+	CD_PHOTO = 14,
+	PREAMP1 = 16,
+	TUNER = 17,
+	REC1 = 18,
+	PREAMP2 = 19,
+	CD = 20,
+	COMBI = 21,
+	SAT = 22,
+	REC2 = 23,
+	// RESVD = 24,
+	// RESVD = 25,
+	CDR = 26,
+	// RESVD = 27,
+	// RESVD = 28,
+	LIGHTING = 29,
+	// RESVD = 30,
+	// RESVD = 31,
+} dev_e;
+
+
 
 #endif	/* RC5_H */

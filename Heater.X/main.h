@@ -63,22 +63,22 @@
 // 27 -- Program Clock
 // 28 -- Program Data
 
-//       +-----+
-// MCLRE-|1  28|-PGD
-// Therm-|2  27|-PGC
-// IR_in-|3  26|-KEY6
-//LEDCth-|4  25|-KEY5
-// DISP1-|5  24|-KEY4
-// DISP2-|6  23|-KEY3
-//  BUZZ-|7  22|-KEY2
-//   Vss-|8  21|-KEY1
-//      -|9  20|-Vdd
-//  LED1-|10 19|-Vss
-//   FAN-|11 18|-
-// HEAT1-|12 17|-
-// HEAT2-|13 16|-
-//   Vdd-|14 15|-
-//       +-----+
+//                 +-----+
+//           MCLRE-|1  28|-PGD
+//           Therm-|2  27|-PGC
+//           IR_in-|3  26|-KEY6,LED6
+//          LEDCth-|4  25|-KEY5,LED5
+//           DISP1-|5  24|-KEY4,LED4
+//           DISP2-|6  23|-KEY3,LED3,DISP_A
+//            BUZZ-|7  22|-KEY2,LED2,DISP_F
+//             Vss-|8  21|-KEY1,LED_F,DISP_D
+//                -|9  20|-Vdd
+//     DISP_G,LED1-|10 19|-Vss
+//             FAN-|11 18|-
+//           HEAT1-|12 17|-
+//           HEAT2-|13 16|-
+//             Vdd-|14 15|-
+//                 +-----+
 // Conn out from front board:
 //
 //     +---+
@@ -182,9 +182,9 @@ typedef enum {_KEYS = 0, _LEDS = 1, _DISP1 = 2, _DISP2 = 3} scan_state;
 
 #ifdef THERMISTER
 // Take three measurements of temp vs resistance and then use those to solve for A, B, and C
-#define TEMP_A (1)
-#define TEMP_B (1)
-#define TEMP_C (1)
+#define TEMP_A (0)
+#define TEMP_B (0)
+#define TEMP_C (0)
 #endif
 
 // We need to do RC5 protocol magic on this.
