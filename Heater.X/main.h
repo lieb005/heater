@@ -92,12 +92,42 @@
 
 // Heat 1, 2, and fan are all 5V active.
 
-typedef enum {_OFF = 0, _ERR, _IDLE, _TIMER_SET, _TIME_SET} global_state;
-typedef enum {_NONE, _FAN, _HEAT1, _HEAT_BOTH} heat_state;
-typedef enum {_COOL = 0b1, _HEAT = 0b10} heat_or_cool;
-typedef enum {_HIGH_HOUR, _HIGH_TEMP, _LOW_HOUR, _LOW_TEMP} timer_set_state;
-// Ensure all are numbers because we need to iterate through
-typedef enum {_KEYS = 0, _LEDS = 1, _DISP1 = 2, _DISP2 = 3} scan_state;
+typedef enum {
+    _OFF = 0,
+    _ERR,
+    _IDLE,
+    _TIMER_SET,
+    _TIME_SET,
+} global_state;
+
+typedef enum {
+    _NONE,
+    _FAN,
+    _HEAT_ONE,
+    _HEAT_BOTH,
+} heat_state;
+
+typedef enum {
+    _COOL = 0b1,
+    _HEAT = 0b10,
+} heat_or_cool;
+
+typedef enum {
+    _HIGH_HOUR,
+    _HIGH_TEMP,
+    _LOW_HOUR,
+    _LOW_TEMP,
+} timer_set_state;
+
+// Ensure all are consecutive numbers because we need to iterate through
+
+typedef enum {
+    _KEYS = 0,
+    _LEDS = 1,
+    _DISP1 = 2,
+    _DISP2 = 3,
+} scan_state;
+
 
 #ifndef _BITS_
 #define _BITS_
@@ -132,6 +162,8 @@ typedef enum {_KEYS = 0, _LEDS = 1, _DISP1 = 2, _DISP2 = 3} scan_state;
 #define KEY6 PORTBbits.RB5
 #define KEY6_TRIS TRISB5
 #define KEY6_MASK BIT5
+
+#define LONG_PRESS 10
 
 #define LED_CATHODE LATA2
 #define LED_CATHODE_TRIS TRISA2
@@ -169,6 +201,8 @@ typedef enum {_KEYS = 0, _LEDS = 1, _DISP1 = 2, _DISP2 = 3} scan_state;
 #define TEMP_R_DIV (1.00e3)
 #define TEMP_R_ZERO (100)
 
+#define TEMP_WINDOW 2
+
 //#define RTD
 #define THERMISTER
 
@@ -198,8 +232,8 @@ typedef enum {_KEYS = 0, _LEDS = 1, _DISP1 = 2, _DISP2 = 3} scan_state;
 #define BUZZ_ON 1
 #define BUZZ_OFF 0
 // These will be the different buzz lengths
-#define BUZZ_SHORT 3
-#define BUZZ_LONG 5
+#define BUZZ_SHORT 2
+#define BUZZ_LONG 4
 
 // Our three outputs that we need to care most about...
 #define FAN LATC0
@@ -215,14 +249,15 @@ typedef enum {_KEYS = 0, _LEDS = 1, _DISP1 = 2, _DISP2 = 3} scan_state;
 #define FAN_FEED_NO_HEAT 1
 
 // Use an enum to prevent address collisions
+
 typedef enum {
-	EE_TIME_ADDR = 0, 
-	EE_WANT_TEMP_ADDR, 
-	EE_DAY_TIME_ADDR, 
-	EE_DAY_TEMP_ADDR,
-	EE_NIGHT_TIME_ADDR,
-	EE_NIGHT_TEMP_ADDR,
-	EE_STATE_ADDR,
+    EE_TIME_ADDR = 0,
+    EE_WANT_TEMP_ADDR,
+    EE_DAY_TIME_ADDR,
+    EE_DAY_TEMP_ADDR,
+    EE_NIGHT_TIME_ADDR,
+    EE_NIGHT_TEMP_ADDR,
+    EE_STATE_ADDR,
 } eeprom_addrs;
 
 #endif	/* MAIN_H */

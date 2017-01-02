@@ -2,8 +2,18 @@
 #define DISP_H
 
 // Function Prototypes
-unsigned char num_to_disp(char num);
+unsigned short num_to_disp(char num);
 void set_digit(unsigned char dig);
+
+typedef enum {
+    _DISP_OFF,
+    _DISP_ERR,
+    //_DISP_TEMP_CUR,
+    _DISP_TEMP_WANT,
+    _DISP_TIMER,
+    _DISP_TIME,
+} disp_modes;
+
 
 #ifndef _BITS_
 #define _BITS_
@@ -55,18 +65,17 @@ void set_digit(unsigned char dig);
 #define SEG_F BIT5
 #define SEG_G BIT6
 
-const unsigned char font[] =
-{
-	SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F |   0  , //0  
-	  0   | SEG_B | SEG_C |   0   |   0   |   0   |   0  , //1
-	SEG_A | SEG_B |   0   | SEG_D | SEG_E |   0   | SEG_G, //2
-	SEG_A | SEG_B | SEG_C | SEG_D |   0   |   0   | SEG_G, //3
-	  0   | SEG_B | SEG_C |   0   |   0   | SEG_F | SEG_G, //4
-	SEG_A |   0   | SEG_C | SEG_D |   0   | SEG_F | SEG_G, //5
-	SEG_A |   0   | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G, //6 (hooked top)
-	SEG_A | SEG_B | SEG_C |   0   |   0   |   0   |   0  , //7
-	SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G, //8
-	SEG_A | SEG_B | SEG_C |   0   |   0   | SEG_F | SEG_G, //9 (straight bottom)
+const unsigned char num_font[] = {
+    SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | 0, //0  
+    0 | SEG_B | SEG_C | 0 | 0 | 0 | 0, //1
+    SEG_A | SEG_B | 0 | SEG_D | SEG_E | 0 | SEG_G, //2
+    SEG_A | SEG_B | SEG_C | SEG_D | 0 | 0 | SEG_G, //3
+    0 | SEG_B | SEG_C | 0 | 0 | SEG_F | SEG_G, //4
+    SEG_A | 0 | SEG_C | SEG_D | 0 | SEG_F | SEG_G, //5
+    SEG_A | 0 | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G, //6 (hooked top)
+    SEG_A | SEG_B | SEG_C | 0 | 0 | 0 | 0, //7
+    SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G, //8
+    SEG_A | SEG_B | SEG_C | 0 | 0 | SEG_F | SEG_G, //9 (straight bottom)
 };
 
 #endif
